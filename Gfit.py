@@ -27,9 +27,9 @@ def plotFunc(plotQ,title,xar,yar,xar1,yar1,GG,col):
 		pl.plot(np.linspace(xar.min(),xar.max(),1000), GG,color='k',linewidth=2)	
 		pl.title(title)
 		try: pl.axvspan(xar.min(), xar1.min(), color='grey', alpha=0.5)
-		except: print "xar1 is empty"
+		except: print "xar1 is empty.  Cannot plot in plotFunc in Gfit.py."
 		try: pl.axvspan(xar1.max(), xar.max(), color='grey', alpha=0.5)
-		except: print "xar1 is empty"
+		except: print "xar1 is empty.  Cannot plot in plotFunc in Gfit.py."
 		pl.xlim([xar.min(),xar.max()])
 		pl.show()
 
@@ -41,27 +41,26 @@ def FM(vAR,X,Y,G):
 	compY, compG =Y[compMask],G[compMask]
 	return np.sqrt(((compY-compG)**2).mean())
 
-def printFunc(quiet,text,text2='dum',text3='dum',text4='dum',text5='dum',text6='dum'):
+def printFunc(quiet,text,text2='dum',text3='dum',text4='dum',text5='dum',text6 ='dum'):
 	if quiet == False:
-		print text
 		if text2!='dum':
-			print text2
 			if text3!='dum':
-				print text3
 				if text4!='dum':
-					print text4
 					if text5!='dum':
-						print text5
 						if text6!='dum':
-							print text6
+							print text,text2,text3,text4,text5,text6
+						else:	print text,text2,text3,text4,text5
+					else: print text, text2,text3,text4
+				else: print text, text2,text3
+			else: print text, text2
+		else:  print text
 
-def Best1G(v_a,FMa,v_b,FMb,tBroadF,tNarrowF,xarmin,xarmax):
-	print "v_a, FMa",v_a, FMa
-	print "v_b, FMb", v_b, FMb
+def Best1G(v_a,FMa,v_b,FMb,tBroadF,tNarrowF,xarmin,xarmax,q=False):
+	printFunc(q,"In Best1G in Gfit.py, determining which of two Gaussian fits is best.  [H, CR, Wid]1 = ",v_a,"rms1 = %s; [H, CR, Wid]2 = " % (FMa),v_b,"rms1 = %s" % (FMb))
 	if list(v_a) == list(v_b):
-		print "Two identical fits entered Best1G"
+		printFunc(q, "Two identical fits entered Best1G")
 		if FMa != FMb:
-			print "...but somehow they don't have the same values input for FitMeasure."
+			printFunc(q,  "...but somehow they don't have the same values input for FitMeasure.")
 		return v_a, FMa
 	if v_a[2]> tNarrowF and v_a[2]<tBroadF and abs(v_a[0])<1.E8 and v_a[1]<xarmax and v_a[1]>xarmin:
 		if v_b[2]> tNarrowF and v_b[2]<tBroadF and abs(v_b[0])<1.E8 and v_b[1]<xarmax and v_b[1]>xarmin:
@@ -90,7 +89,7 @@ def Best1G(v_a,FMa,v_b,FMb,tBroadF,tNarrowF,xarmin,xarmax):
 				if abs(v_a[0]) < 1.E8:
 					return v_a, FMa
 				else:   
-					print "both of these have heights that are outrageous"
+					printFunc(q,  "both of these have heights that are outrageous.")
 					return v_a, FMa
 			if v_a[2]< tNarrowF or v_b[2]< tNarrowF:
 				if v_b[2] < tNarrowF:
@@ -109,7 +108,7 @@ def Best1G(v_a,FMa,v_b,FMb,tBroadF,tNarrowF,xarmin,xarmax):
 						return v_b, FMb
 				else:  
 					return v_b, FMb
-	print "somehow I got to the bottom of Best1G.  Returning v_a, FMa"
+	print "In Best1G in Gfit.py, determining which of two Gaussian fits is best. Somehow I got to the bottom of Best1G.  Returning v_a, FMa"
 	return v_a, FMa
 
 
@@ -118,13 +117,13 @@ gauss_fit2 = lambda p, x: p[0]*np.exp(-(x-p[1])**2/(2*(p[2]/2.3548)**2))+p[3]*np
 e_gauss_fit1 = lambda p, x, y: (gauss_fit1(p,x) -y) #1d Gaussian fit
 e_gauss_fit2 = lambda p, x, y: (gauss_fit2(p,x) -y) #2d Gaussian fit
 
-def GauFit(xar,yar,rrms,nGau=1,v0=[0.,0.,0.],plotQ=False,tooNarrow = 2.2, Broad = 40, tooBroad=70, tooBroadABS = 9999,quiet = False, units = 'MHz',compSpread = 20, compWid= 15,strongH = 10,DynRange = 100,firstImFreq = 30750.,imFreqRange = 1850.):		##v[0] = height, v[1] = center, v[2] = width (MHz)\
+def GauFit(xar,yar,rrms,nGau=1,v0=[0.,0.,0.],plotQ=False,tooNarrowv = 2.2, Broadv = 40, tooBroadv=70, tooBroadvABS = 9999,quiet = False, units = 'MHz',compSpread = 20, compWid= 15,DynRange = 100,firstImFreq = 30750.,imFreqRange = 1850.):		##v[0] = height, v[1] = center, v[2] = width (MHz)\
 #############################   BinCode = 2 and Bincode = 3 fits should be handled with caution.  Here's the description of these:
 #################   binCode = 0:  A 1-component fit was sufficient.
 #################   binCode = 1:  A 2-component fit was sufficient.
 #################   binCode = 2:  A 2-component fit was deemed necessary, but I couldnt find a good 2-component fit.  I used a 1-component fit. Handle with caution or re-fit manually.
 #################   binCode = 3:  The rms in the region fit is significantly higher than that of the spectrum it's coming from.  = bad fit... Handle with caution or re-fit manually.
-#################   binCode = 5:  Is WAYY too broad.  These are in there as placeholders to enable the code to procede (i.e. not continue to loop through finding and attempting to fit the same thing).  You will NEED to refit anything with binCode = 5
+#################   binCode = 5:  Is WAYY too broad or has an unreasonable line height.  These are in there as placeholders to enable the code to procede (i.e. not continue to loop through finding and attempting to fit the same thing).  You will NEED to refit anything with binCode = 5
 
 	if units == 'GHz':
 		xar = xar * 1000
@@ -133,7 +132,7 @@ def GauFit(xar,yar,rrms,nGau=1,v0=[0.,0.,0.],plotQ=False,tooNarrow = 2.2, Broad 
 	binCode=0	
 	cc='m'
 	goTo2=False
-	########################### FILL IN THE INITIAL GUESSES FOR THE GAUSSIAN FIT if THEY ARENT ALREADY INPUT.   ###
+	########################### FILL IN THE INITIAL GUESSES FOR THE GAUSSIAN FIT if THEY AREN'T ALREADY INPUT.   ###
 	if max(v0)==0:			
 		v0[0]=float(maxabs(yar))
 		v0[1]=float(xar[np.argmax(np.abs(yar))])
@@ -148,14 +147,22 @@ def GauFit(xar,yar,rrms,nGau=1,v0=[0.,0.,0.],plotQ=False,tooNarrow = 2.2, Broad 
 		except:	rsrms=rrms
 	
 	########################### DETERMINE THE REASONABLE WIDTHS IN FREQUENCY GIVEN THE INPUTS TO THE FUNCTION.   ###
-	BroadF = Broad * v0[1]/c
-	if v0[0]< 0 and tooBroadABS!=9999:
-		tooBroadF = tooBroadABS * v0[1]/c
+	if Broadv == 'dum':
+		Broadv=40
+	if tooBroadv =='dum':
+		tooBroadv=70
+	if tooBroadvABS=='dum' or tooBroadvABS == 9999:
+		tooBroadvABS = tooBroadv
+	if tooNarrowv=='dum':
+		tooNarrowv=2.2
+	BroadF = Broadv * v0[1]/c
+	if v0[0]< 0 and tooBroadvABS!=9999:
+		tooBroadF = tooBroadvABS * v0[1]/c
 		if tooBroadF < BroadF:
 			BroadF = .7 * tooBroadF
 	else:  
-		tooBroadF = tooBroad * v0[1]/c
-	tooNarrowF = tooNarrow * v0[1]/c
+		tooBroadF = tooBroadv * v0[1]/c
+	tooNarrowF = tooNarrowv * v0[1]/c
 	compSpreadF = compSpread * v0[1]/c
 	take1Mask = abs(xar-v0[1])/tooBroadF < .8
 	xar1,yar1 = xar[take1Mask],yar[take1Mask]
@@ -169,18 +176,18 @@ def GauFit(xar,yar,rrms,nGau=1,v0=[0.,0.,0.],plotQ=False,tooNarrow = 2.2, Broad 
 	FitMeasure = FM(v,xar,yar,GG2)
 	FM11G=FitMeasure
 	printFunc(quiet,'1G initial guesses: [h,cr,wid] = [%.3f,%.3f,%.3f]' % (v0[0],v0[1],v0[2]),'1G 1st fit: [h,cr,wid] = [%.3f,%.3f,%.3f]' % (v[0],v[1],v[2]) )
-	print "FM11G = ",FM11G
+	printFunc(quiet, "In GauFit, FM11G = ",FM11G)
 	plotFunc(plotQ,'1 Gaussian, 1st fit',xar,yar,xar1,yar1,GG11,'b')
 
 	########################### SELECT A REGION TO RE-FIT 1 GAUSSIAN TO.  It will exclude line wings, baseline errors, and blends outside of that range. ###
-	print "v[2]/tooBroadF = ",v[2]/tooBroadF
+	printFunc(quiet,"v[2]/tooBroadF = ",v[2]/tooBroadF)
 	if v[2]/tooBroadF<1. and v[2]>tooNarrowF:
 		RedoMask=abs(xar-v[1])/v[2]<.8	
 	else: 
 		if v[1] <xar1.max() and v[1]> xar1.min():
-			print "v[2]/tooNarrowF", v[2]/tooNarrowF
-			print "v[0]/rsrms",v[0]/rsrms
-			print "v[2]/tooBroadF",v[2]/tooBroadF
+			printFunc(quiet, "v[2]/tooNarrowF", v[2]/tooNarrowF)
+			printFunc(quiet, "v[0]/rsrms",v[0]/rsrms)
+			printFunc(quiet, "v[2]/tooBroadF",v[2]/tooBroadF)
 			if v[2]/tooNarrowF>1. and v[0]/rsrms > 10 and v[2]/tooBroadF < 2:
 				RedoMask=abs(xar-v[1])/v[2]<.8	
 			else:  
@@ -193,7 +200,7 @@ def GauFit(xar,yar,rrms,nGau=1,v0=[0.,0.,0.],plotQ=False,tooNarrow = 2.2, Broad 
 		xar1,yar1 = xar[RedoMask],yar[RedoMask]
 	try:  printFunc(quiet,"BroadF =  %.3f, tooBroadF = %.3f, xar1.min() = %.3f, xar1.max() = %.3f" % (BroadF,tooBroadF,xar1.min(),xar1.max()))
 	except:  
-		printFunc(False, 'There is still some problem before going in to refit 1Gauss.')
+		printFunc(quiet, 'There is still some problem before going in to refit 1Gauss.')
 	########################### REFIT   ###
 	try:	out = leastsq(e_gauss_fit1, v0[:], args=(xar1, yar1), maxfev=100000, full_output=1)	
 	except:  printFunc(quiet, 'The second try of 1G failed.')
@@ -208,8 +215,8 @@ def GauFit(xar,yar,rrms,nGau=1,v0=[0.,0.,0.],plotQ=False,tooNarrow = 2.2, Broad 
 	########################## IF THE SECOND 1G FIT LOOKS REASONABLE, TAKE THE BETTER OF THE 1ST & 2ND FITS.   ###
 	if abs(v[0])<1.E8 and abs(v[2])<tooBroadF and abs(v[2])>tooNarrowF and v[1]<xar1.max() and v[1]>xar1.min():	##Then 1GAUSS looks reasonable.  I WOULD LIKE TO CHANGE v[2]<20 TO 12.   ###
 		printFunc(quiet, "Got into the 1Gauss isn't totally egregious")
-		vBEST1,FMBEST1 = Best1G(v11G,FM11G,v1G,FM1G,tooBroadF,tooNarrowF,xar.min(),xar.max())
-		v, FMBEST1 = Best1G(v11G,FM11G,v1G,FM1G,tooBroadF,tooNarrowF,xar.min(),xar.max())
+		vBEST1,FMBEST1 = Best1G(v11G,FM11G,v1G,FM1G,tooBroadF,tooNarrowF,xar.min(),xar.max(),q=quiet)
+		v, FMBEST1 = Best1G(v11G,FM11G,v1G,FM1G,tooBroadF,tooNarrowF,xar.min(),xar.max(),q=quiet)
 	########################## IF THE SECOND 1G FIT DOESNT LOOK REASONABLE, TRY FITTING A DIFFERENT REGION (A BROADER REGION) AND THEN TAKE THE BEST OF THE 1ST, 2ND, AND NEW FIT   ###
 	else: 
 		printFunc(quiet, "The second iteration of 1Gauss isn't convincing.")
@@ -227,34 +234,31 @@ def GauFit(xar,yar,rrms,nGau=1,v0=[0.,0.,0.],plotQ=False,tooNarrow = 2.2, Broad 
 		plotFunc(plotQ,'1 Gaussian, new fit',xar,yar,xar1,yar1,GG,'b')
 		FitMeasure = float(FM(v,xar,yar,GG2))
 		## Find the better fit between the 3rd try and the second.  
-		vbetter,FMbetter = Best1G(v,FitMeasure,v1G,FM1G,tooBroadF,tooNarrowF,xar.min(),xar.max())
+		vbetter,FMbetter = Best1G(v,FitMeasure,v1G,FM1G,tooBroadF,tooNarrowF,xar.min(),xar.max(),q=quiet)
 		## Find the better fit between the winner of round 1 and the second.
-		vBEST1,FMBEST1 = Best1G(vbetter,FMbetter,v11G,FM11G,tooBroadF,tooNarrowF,xar.min(),xar.max())
-		v, FMBEST1 = Best1G(v11G,FM11G,v1G,FM1G,tooBroadF,tooNarrowF,xar.min(),xar.max())
+		vBEST1,FMBEST1 = Best1G(vbetter,FMbetter,v11G,FM11G,tooBroadF,tooNarrowF,xar.min(),xar.max(),q=quiet)
+		v, FMBEST1 = Best1G(v11G,FM11G,v1G,FM1G,tooBroadF,tooNarrowF,xar.min(),xar.max(),q=quiet)
 		if v[2]< tooNarrowF or v[2]>tooBroadF or abs(v[0])>1.E8 or v[1]>xar.max() or v[1]<xar.min():
 			printFunc(quiet, "The most reasonable 1G fit is still unreasonable.  binCode = 3.")
 			binCode = 3
 			cc='g'
 	########################### DETERMINE IF 2GAUSS IS CALLED FOR OR 1GAUSS IS SUFFICIENT ############################	
-	printFunc(False," Passing these parameters to G2.criteria:  cr-cr0 = %.3f, FM = %.3f, ImageRMS =  %.3f, height = %.3f, absMax is at %.3f" % (vBEST1[1]-v0[1],FMBEST1, rsrms, vBEST1[0],v0[0]))
+	printFunc(quiet," Passing these parameters to G2.criteria:  cr-cr0 = %.3f, FM = %.3f, ImageRMS =  %.3f, height = %.3f, absMax is at %.3f" % (vBEST1[1]-v0[1],FMBEST1, rsrms, vBEST1[0],v0[0]))
 	if G2.criteria(v[1],v0[1],v[2],FMBEST1,v[0],v0[0],rsrms,BroadF, q=quiet)==True:	
 			goTo2='True'
 			binCode=1
 			cc = 'y'
-			printFunc(False, "MET the 2Gauss criterion the first try!")
+			printFunc(quiet, "MET the 2Gauss criterion the first try!")
 	
-	else: printFunc(False, "didnt meet the 2Gauss criterion the first try!")	
+	else: printFunc(quiet, "didnt meet the 2Gauss criterion the first try!")	
 	SNR = abs(v[0]/rsrms)
 	FMrms= FitMeasure/rsrms
 	
-	print "!!!!!!!!! Freq =", v0[1]
-	print "!!!       SNR/DynRange * 1/FMrms = ",SNR/DynRange * 1/FMrms
-	print "!!! FM/rms = ",FMrms 
-	print "!!! SNR/DynRange = ",SNR/DynRange 
-	if SNR/DynRange >1:
-		if 0.8*SNR/DynRange * rsrms > FM:
-			print "AHHHHHHHHH.  Should I change this to 1G?"
-		##########################################################################################
+	printFunc(quiet, "!!!!!!Best 1 Gaussian fit obtained for Freq =", v0[1])
+	printFunc(quiet, "!!!       SNR/DynRange * 1/FMrms = ",SNR/DynRange * 1/FMrms)
+	printFunc(quiet, "!!! FM/rms = ",FMrms )
+	printFunc(quiet, "!!! SNR/DynRange = ",SNR/DynRange )
+##########################################################################################
 ####### DONE IF ONLY 1GAUSS IS NEEDED.  IF 2GAUSS, NOW MOVING INTO FITTING 2GAUSS. #######
 ##########################################################################################
 	if goTo2=='True':	
@@ -264,11 +268,7 @@ def GauFit(xar,yar,rrms,nGau=1,v0=[0.,0.,0.],plotQ=False,tooNarrow = 2.2, Broad 
 
 ############################### FILL THE INPUT GUESS ARRAY & ESTABLISH A REGION TO FIT THAT CONTAINS IT.  IT ACTUALLY TRIES TO USE THE REGION FROM ABOVE, AND ONLY CHANGES xar1 IF IT NEEDS TO.  THEN FIT A 2GAUSS PROFILE.  ###
 		G2_input=[v0[0],v0[1],compWidF]	
-		print "vBEST1[1] = ", vBEST1[1]
-		print "xar.min()",xar.min()
-		print "xar.max()",xar.max()
-		print "G2_input[1]+2.3*(vBEST1[1]-v0[1])",G2_input[1]+2.3*(vBEST1[1]-v0[1])
-		print "G2_input[1]+2.3*(vBEST1[1]-v0[1])",G2_input[1]+2.3*(vBEST1[1]-v0[1])
+		printFunc(quiet, "Best 1Gauss is centered at = ", vBEST1[1])
 		direction = (v[1]-v0[1])/abs(v[1]-v0[1])
 		FrangeRequired = BroadF/10
 
@@ -280,9 +280,8 @@ def GauFit(xar,yar,rrms,nGau=1,v0=[0.,0.,0.],plotQ=False,tooNarrow = 2.2, Broad 
 			if G2_input[1]+2.3*(vBEST1[1]-v0[1])> xar.min() and G2_input[1]+2.3*(vBEST1[1]-v0[1])< xar.max():
 				G2_input.extend([G2_input[0]*0.6,G2_input[1]+2.3*(v[1]-v0[1]),compWidF])
 			else:  
-				printFunc(False, "got in IF place in fill input guess array", "G2_input[1]-1.*(v[1]-v0[1]) =",G2_input[1]-1.*(v[1]-v0[1])) 
-				printFunc(False, "G2_input[1]", G2_input[1], "v[1]",v[1],"v0[1]",v0[1])
-				print "FUUUUUUUUUUUUUUUUUUUUUUUUCKKKCKKCK"
+				printFunc(quiet, "got in IF place in fill input guess array", "G2_input[1]-1.*(v[1]-v0[1]) =",G2_input[1]-1.*(v[1]-v0[1])) 
+				printFunc(quiet, "G2_input[1]", G2_input[1], "v[1]",v[1],"v0[1]",v0[1])
 				direction = -1*direction
 				G2_input.extend([G2_input[0]*0.6,G2_input[1]+ direction * compSpreadF,compWidF])
 
@@ -292,9 +291,9 @@ def GauFit(xar,yar,rrms,nGau=1,v0=[0.,0.,0.],plotQ=False,tooNarrow = 2.2, Broad 
 		## Then our initial guesses aren't reasonable given the typical spread in components.
 			G2_input[4]=G2_input[1]+compSpreadF * direction
 		if G2_input[4]-xar1.min() < FrangeRequired  or xar1.max() - G2_input[4] < FrangeRequired: 
-			print "We need to re-set a region"
+			printFunc(quiet, "Re-setting a region")
 			if G2_input[1]- xar.min() < FrangeRequired or xar.max() - G2_input[1] < FrangeRequired:
-				print "Something's super wrong!"
+				print "Something's super wrong in GauFit!"
 			if G2_input[4] - xar.min() < FrangeRequired or xar.max() - G2_input[4] < FrangeRequired:
 				if direction == 1:
 					xlim = xar.max()
@@ -313,14 +312,14 @@ def GauFit(xar,yar,rrms,nGau=1,v0=[0.,0.,0.],plotQ=False,tooNarrow = 2.2, Broad 
 			if len(xar1) < 5:
 				binCode = 2
 				goTo2 = 'getOut'  ## Give it a way out.
-				print "************************"
-				print " "
-				print "Somehow, I can't get a good combination for the input guesses and regions for 2Gauss."
-				print " "
-				print "************************"
+				printFunc(quiet, "************************")
+				printFunc(quiet, " ")
+				printFunc(quiet, "Somehow, I can't get a good combination for the input guesses and regions for 2Gauss.  Am continuing with 1 Gauss.")
+				printFunc(quiet, " ")
+				printFunc(quiet, "************************")
 			
-		printFunc(False, '2G initial guesses: G1 [h,cr,wid], G2 [h,cr,wid] = [%.3f, %.3f, %.3f], [%.3f,%.3f,%.3f]' % (G2_input[0],G2_input[1],G2_input[2],G2_input[3],G2_input[4],G2_input[5]))
-		printFunc(False, 'xar1 min & max inputs: [%.3f, %.3f]' % (xar1.min(),xar1.max()))
+		printFunc(quiet, '2G initial guesses: G1 [h,cr,wid], G2 [h,cr,wid] = [%.3f, %.3f, %.3f], [%.3f,%.3f,%.3f]' % (G2_input[0],G2_input[1],G2_input[2],G2_input[3],G2_input[4],G2_input[5]))
+		printFunc(quiet, 'Fitting data using the frequency range [%.3f, %.3f]' % (xar1.min(),xar1.max()))
          ########################### DONE FILLING THE INPUT GUESS ARRAY & SELECTING THE REGION. ###
 
          ########################### FIT THE 1ST TAKE ON THE 2GAUSS FIT.   ### 
@@ -345,49 +344,63 @@ def GauFit(xar,yar,rrms,nGau=1,v0=[0.,0.,0.],plotQ=False,tooNarrow = 2.2, Broad 
 
          ########################### ADJUST THE REGION WE'RE FITTING.   ###
 		xar_range,mid= highlowmid(v,nn=0.8)
-		print "xar_range,mid =",xar_range,mid
+		printFunc(quiet, "xar_range,mid =",xar_range,mid)
 		if abs(v[0])<1.E8 and abs(v[3])<1.E8 and v[1]<xar.max() and v[1]>xar.min() and v[4]<xar.max() and v[4]>xar.min(): 
 			if xar_range > tooNarrowF and xar_range< tooBroadF*1.5 and v[2]<tooBroadF and v[5]<tooBroadF:  
 				doOverMask=abs(xar-mid)<xar_range
 				printFunc(quiet, "xar_range = %0.3f" % xar_range)
-				print "set doOverMask in else, if"
+				printFunc(quiet, "set doOverMask in else, if")
 			else:
 				GinpRange,m = highlowmid(G2_input,0.7)
-				print "GinpRange,m =",GinpRange,m
+				printFunc(quiet, "GinpRange,m =",GinpRange,m)
 				doOverMask=abs(xar-m)<GinpRange
-				print "set doOverMask in else, else"
+				printFunc(quiet, "set doOverMask in else, else")
 		else: 
-			print "NEED TO ADJUST THE REGION SIGNIFICANTLY"			    
+			printFunc(quiet, "NEED TO ADJUST THE REGION SIGNIFICANTLY")			    
 			if abs(v[2])<tooBroadF or abs(v[5])<tooBroadF:		##Might be able to salvage things using one of the 2-gauss components if one has a decent parameter for width.  Also, we'll populate an input array for a 1component fit if we can't find a good 2comp one.
-				if v[2]<v[5]:
-				    print "in here;;;/  v[2],v[5] = ",v[2],v[5]
-				    print v[0], v0[0]
+				if abs(v[2])<abs(v[5]):
+				
 				    if v[1] > xar.min() and v[1] < xar.max() and v[0]/v0[0] > 0 and abs(v[0])< 1.E8:
-					print "deeper, where I want to be actually"
 					v[2]=abs(v[2])
 					doOverMask = abs(xar-v[1])<.7*v[2]	##Make it a slightly more narrow range.
 				    else:  	
-					v[5]=abs(v[5])
-					doOverMask = abs(xar-v[4])<.7*v[5]
-				if abs(v[5])<v[2]: 
-				    print ";;;;;in here;;;/  v[2],v[5] = ",v[2],v[5]
-				    print v[3], v0[0]
-				    if v[4] > xar.min() and v[4] < xar.max() and v[3]/v0[0] > 0: 
-					print "deeper, where I want to be actually"
-					print "xar.min(), xar.max()",xar.min(), xar.max()
-					print "v[3]",v[3]
-					v[5]=abs(v[5])
-					doOverMask = abs(xar-v[4])<.7*v[5]
-				    else:  	
-					v[2]=abs(v[2])
-					doOverMask = abs(xar-v[1])<.7*v[2]	
+					if v[4] > xar.min() and v[4] < xar.max():
+					    v[5]=abs(v[5])
+					    doOverMask = abs(xar-v[4])<.7*v[5]
+					else:  
+						printFunc(quiet, " DIDN'T FIND A DECENT ADJUSTMENT>>>")
+						goTo2='getOut'
+						binCode=2
+						cc = 'g'
+						nGau = 1
+						printFunc(quiet, "2Gauss didnt go so well.  Will use a 1G fit.")
+						v=vBEST1
+						FitMeasure = FMBEST1
+				else:
+				    if abs(v[5])<abs(v[2]): 
+				    	if v[4] > xar.min() and v[4] < xar.max() and v[3]/v0[0] > 0 and abs(v[3])< 1.E8: 
+				 	    v[5]=abs(v[5])
+					    doOverMask = abs(xar-v[4])<.7*v[5]
+					else:  	
+					    if v[1] > xar.min() and v[1] < xar.max():
+					        v[2]=abs(v[2])
+					        doOverMask = abs(xar-v[1])<.7*v[2]	
+					    else:  
+						printFunc(quiet, " DIDN'T FIND A DECENT ADJUSTMENT>>>")
+						goTo2='getOut'
+						binCode=2
+						cc = 'g'
+						nGau = 1
+						printFunc(quiet, "2Gauss didnt go so well.  Will use a 1G fit.")
+						v=vBEST1
+						FitMeasure = FMBEST1
 			else:  
-				print " DIDN'T FIND A DECENT ADJUSTMENT>>>"
+				printFunc(quiet, " DIDN'T FIND A DECENT ADJUSTMENT>>>")
 				goTo2='getOut'
 				binCode=2
 				cc = 'g'
 				nGau = 1
-				printFunc(quiet, "2Gauss didnt go so well")
+				printFunc(quiet, "2Gauss didnt go so well.  Will use a 1G fit.")
 				v=vBEST1
 				FitMeasure = FMBEST1
 
@@ -414,17 +427,17 @@ def GauFit(xar,yar,rrms,nGau=1,v0=[0.,0.,0.],plotQ=False,tooNarrow = 2.2, Broad 
 		plotFunc(plotQ,'2nd 2Gauss fit.',xar,yar,xar1,yar1,GG,cc)
 		### DONE EVALUATING THE RMS RESIDUAL ###
 
-############################### BUILD A SOMETHING DOESNT WORK PLACE IN WHICH I CAN HAVE ONE MORE GO AT PRODUCING A DECENT 2GAUSS FIT OR DECIDE TO USE THE BEST 1G FIT.   ###
+############################### BUILD A 'SOMETHING DOESNT WORK PLACE' IN WHICH I CAN HAVE ONE MORE GO AT PRODUCING A DECENT 2GAUSS FIT OR DECIDE TO USE THE BEST 1G FIT.   ###
 
-         ###########################  LET'S SAY TRY A 2-GAUSS FIT ON A BROADER AREA.  IF THAT DOESN'T WORK, THEN TAKE THE 1ST 2GAUSS FIT IF IT WAS OKAY.  IF IT WASN'T OKAY, TAKE THE BEST 1GAUSS FIT.   ###
+         ###########################  TRY A 2-GAUSS FIT ON A BROADER AREA.  IF THAT DOESN'T WORK, THEN TAKE THE 1ST 2GAUSS FIT IF IT WAS OKAY.  IF IT WASN'T OKAY, TAKE THE BEST 1GAUSS FIT.   ###
 		FMrms= FitMeasure/rsrms
 		printFunc(quiet, "After 2nd try at 2Gauss, FitMeasure/rsrms= % 0.2f" % FMrms) 
 		if v[0] > v[3]:
 			SNR = abs(v[0]/rsrms)
 		else:  
 			SNR = abs(v[3]/rsrms)
-		print "!!!!!!!!! SNR/DynRange * 1/FMrms = ", SNR/DynRange * 1/FMrms
-		print "!!!!      FM/rms = ",FMrms
+		printFunc(quiet,  "!!!!!!!!! SNR/DynRange * 1/FMrms = ", SNR/DynRange * 1/FMrms)
+		printFunc(quiet,  "!!!!      FM/rms = ",FMrms)
 		if v[2]/tooNarrowF<.6 or v[5]/tooNarrowF<0.6 or abs(v[0])>1.E8 or abs(v[3])>1.E8 or v[2]/tooBroadF>1 or v[5]/tooBroadF>1 or v[1]>xar1.max() or v[1]<xar1.min() or v[4]>xar1.max() or v[4]<xar1.min(): 
 			printFunc(quiet, "I got into the 2Gauss fit -- SOMETHING DOESNT WORK PLACE.")
 			plotFunc(plotQ,'Failed 2Gauss fit.',xar,yar,xar1,yar1,GG,cc)
@@ -440,7 +453,7 @@ def GauFit(xar,yar,rrms,nGau=1,v0=[0.,0.,0.],plotQ=False,tooNarrow = 2.2, Broad 
 			### DONE SELECTING THE REGION TO FIT ### 
 	
 			### NOW FIT AND EVALUATE FIT.   ### 
-			try:  out = leastsq(e_gauss_fit2, G2_input[:], args=(xar1, yar1), maxfev=100000, full_output=1) 	#Gauss Fit  Might want to change G2_input a bit.
+			try:  out = leastsq(e_gauss_fit2, G2_input[:], args=(xar1, yar1), maxfev=100000, full_output=1) 	#Gauss Fit 
 			except:  
 				goTo2='getOut'
 				binCode=2
@@ -463,28 +476,42 @@ def GauFit(xar,yar,rrms,nGau=1,v0=[0.,0.,0.],plotQ=False,tooNarrow = 2.2, Broad 
 				binCode=2
 				cc = 'g'
 				if abs(v[2])<tooBroadF or abs(v[5])<tooBroadF:		##Might be able to salvage things using one of the 2-gauss components if one has a decent parameter for width.
-					if v[2]<v[5]:
+					if abs(v[2])<abs(v[5]):
 					    if v[1] > xar.min() and v[1] < xar.max() and v[3]/v0[0] > 0:
 						v[2]=abs(v[2])
 						doOverMask = abs(xar-v[1])<.7*v[2]	##Make it a slightly more narrow range.
 						vINP = v[0:3]	
 						vINP[0]= v0[0]
 					    else:  	
-						v[5]=abs(v[5])
-						doOverMask = abs(xar-v[3])<.7*v[5]
-						vINP = v[3:6]	
-						vINP[0]= v0[0]
-					if abs(v[5])<v[2]: 
+						if v[4] > xar.min() and v[4] < xar.max():
+							v[5]=abs(v[5])
+							doOverMask = abs(xar-v[4])<.7*v[5]
+							vINP = v[3:6]	
+							vINP[0]= v0[0]
+						else:  
+							v[5]=abs(v[5])
+							doOverMask=abs(xar-v[4])<Broadv*.4
+							vINP = v[3:6]	
+							vINP[0]= v0[0]
+
+					if abs(v[5])<abs(v[2]): 
 					    if v[4] > xar.min() and v[4] < xar.max() and v[3]/v0[0] > 0: 
 						v[5]=abs(v[5])
 						doOverMask = abs(xar-v[3])<.7*v[5]
 						vINP = v[3:6]
 						vINP[0]= v0[0]	
-					    else:  	
-						v[2]=abs(v[2])
-						doOverMask = abs(xar-v[1])<.7*v[2]
-						vINP = v[0:3]
-						vINP[0]= v0[0]		
+					    else:  
+						if v[1] > xar.min() and v[1] < xar.max():	
+							v[2]=abs(v[2])
+							doOverMask = abs(xar-v[1])<.7*v[2]
+							vINP = v[0:3]
+							vINP[0]= v0[0]	
+						else:  
+							v[2]=abs(v[2])
+							doOverMask=abs(xar-v[1])<Broadv*.4
+							vINP = v[0:3]	
+							vINP[0]= v0[0]	
+
 					xar1, yar1 =xar[doOverMask],yar[doOverMask] 
 					printFunc(quiet,  "vINP = [%.3f, %.3f, %.3f]" %(vINP[0],vINP[1],vINP[2]))
 					try:  out = leastsq(e_gauss_fit1, vINP[:], args=(xar1, yar1), maxfev=100000, full_output=1)
@@ -493,12 +520,11 @@ def GauFit(xar,yar,rrms,nGau=1,v0=[0.,0.,0.],plotQ=False,tooNarrow = 2.2, Broad 
 					GG, GG2=gauss_fit1(v,np.linspace(xar.min(),xar.max(),1000)), gauss_fit1(v,xar)
 					FitMeasure = FM(v,xar,yar,GG2)
 					plotFunc(plotQ,'1Gauss re-fit after being unable to get a good 2G fit.',xar,yar,xar1,yar1,GG,cc)
-					print "1Gauss re-fit, v = ",v
-					vBEST1,FMBEST1 = Best1G(vBEST1,FMBEST1,v,FitMeasure,tooBroadF,tooNarrowF,xar.min(),xar.max())
-					v, FitMeasure = Best1G(vBEST1,FMBEST1,v,FitMeasure,tooBroadF,tooNarrowF,xar.min(),xar.max())
+					printFunc(quiet, "1Gauss re-fit, v = ",v)
+					vBEST1,FMBEST1 = Best1G(vBEST1,FMBEST1,v,FitMeasure,tooBroadF,tooNarrowF,xar.min(),xar.max(),q=quiet)
+					v, FitMeasure = Best1G(vBEST1,FMBEST1,v,FitMeasure,tooBroadF,tooNarrowF,xar.min(),xar.max(),q=quiet)
 					
-				print "down here, v = ",v
-	if FitMeasure/rsrms > 2 and abs(FitMeasure/v[0]) > .1:  ###This is a bad fit.  I could probably do more to find bad fits.  For now, this is what I've got.
+	if FitMeasure/rsrms > 2 and abs(FitMeasure/v[0]) > .1:  ###This is a bad fit.  
 		if len(v)==6:
 		    if abs(FitMeasure/v[3]) >.1:
 			binCode= 3
@@ -506,22 +532,28 @@ def GauFit(xar,yar,rrms,nGau=1,v0=[0.,0.,0.],plotQ=False,tooNarrow = 2.2, Broad 
 		if len(v)==3:
 			binCode= 3
 			cc = 'g'
-	if v[2]/tooBroadF > 5 or tooNarrowF/v[2] > 5:  ###This is a bad fit.  I could probably do more to find bad fits.  For now, this is what I've got.
+	if v[2]/tooBroadF > 5 or tooNarrowF/v[2] > 5 or abs(v[0])/abs(v0[0])>2:  ###This is a bad fit.  
 			binCode= 5
 			cc = 'r'
 			v=v0
 			nGau = 1
-			print "QWHHATT, v[2]/tooNarrowF =" ,v[2]/tooNarrowF
 			FitMeasure = 9999
+	if binCode==1:
+		if abs(v[3])/abs(v0[0])>2:  ###This is a bad fit.  
+			binCode= 5
+			cc = 'r'
+			v=v0
+			nGau = 1
+			FitMeasure = 9999
+			
 	if plotQ==True:
-		print "and even here, v = ",v
 		try: GG=gauss_fit2(v,np.linspace(xar.min(),xar.max(),1000))
 		except: GG=gauss_fit1(v,np.linspace(xar.min(),xar.max(),1000))
 		plotFunc(plotQ,'Final Fit',xar,yar,xar1,yar1,GG,cc)
 	if nGau == 1:
-		printFunc(False, "height = %.3f, cr = %.3f, width = %.3f, FitMeasure = %.3f, binCode = %i " % (v[0],v[1],v[2],FitMeasure,binCode))
+		printFunc(quiet, "height = %.3f, cr = %.3f, width = %.3f, FitMeasure = %.3f, binCode = %i " % (v[0],v[1],v[2],FitMeasure,binCode))
 		return [binCode,v[0],v[1],v[2],FitMeasure,v[1]-v0[1]]
 	if nGau == 2:
-		printFunc(False, "height = %.3f, cr = %.3f, width = %.3f, height = %.3f, cr = %.3f, width = %.3f, FitMeasure = %.3f, binCode = %i" % (v[0],v[1],v[2],v[3],v[4],v[5],FitMeasure,binCode))
+		printFunc(quiet, "height = %.3f, cr = %.3f, width = %.3f, height = %.3f, cr = %.3f, width = %.3f, FitMeasure = %.3f, binCode = %i" % (v[0],v[1],v[2],v[3],v[4],v[5],FitMeasure,binCode))
 		return [binCode,v[0],v[1],v[2],v[3],v[4],v[5],FitMeasure]
 
