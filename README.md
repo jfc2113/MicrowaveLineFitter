@@ -19,15 +19,24 @@ Now, here comes the full description:
 
 The MicrowaveLineFitter repository includes eight scripts, five spectra towards positions in Sgr B2, and csv files holding line data.  Two of the scripts are run directly, namely  'FullCode.py' is run before 'VEL/VelocityFileMaker.py'.  After optional adjustments by the user, 'VelocityFileMaker.py' uses the output of 'FullCode.py' to generate a final csv file that contains 
 Gaussian fits to the full spectrum and line identifications.  Of the remaining six scripts, five contain modules called in `FullCode.py'.  The modules and their primary purposes include:
+
 1. 'LineFind.py' grabs segments of the spectrum that contain lines, detecting ``line-channels'' with single-channel intensity values greater than $\sigma_{rms} \times $ an input threshold.  The module also selects a set number of channels on either side of  line-channels.  The number of neighboring channels has a default value of 5, but can be adjusted when LineFind is called.
+
 2. 'FTinterp.py' interpolates a segment of the spectrum, outputting a spectrum with a factor of 3 improvement in the spectral resolution.  It performs the interpolation by Fourier-domain zero padding.  This should only be used for data with poor spectral resolution compared to the linewidths.
+
 3. 'Gfit.py' provides the most essential functionality; through 'FullCode.py', the function Gfit.GauFit is passed a single segment of the spectrum that contains one or more lines.  Gfit.GauFit returns a 1- or 2-component Gaussian fit to a spectral feature within the segment.  The script selects a specific portion of the line-containing segment and first attempts a one-component fit.  It then follows an algorithm to adjust the section of the segment used for line-fitting and re-fit 1-component Gaussians.  It passes information to 'G2criteria.py', which  evaluates the fit against a set of criteria to determine whether a 2-component Gaussian fit is justified.  The output of G2criteria  determines whether Gfit.GauFit fits a 2-component Gaussian, following an algorithm to adjust the section used for line-fitting and attempting 2-component Gaussian fits.
-4. 'G2criteria.py' determines if a 2-component Gaussian fit is required.  Gfit.GauFit provides G2criteria with information about the data and the best 1-component Gaussian fit achieved; G2criteria then determines if the data differs significantly from the 1-component fit, requiring a 2-component fit.  G2criteria takes into account the  signal-to-noise ratio of the line in question and the degree to which the data differs from the 1-component Gaussian fit.  The primary factors considered include
+
+4. 'G2criteria.py' determines if a 2-component Gaussian fit is required.  Gfit.GauFit provides G2criteria with information about the data and the best 1-component Gaussian fit achieved; G2criteria then determines if the data differs significantly from the 1-component fit, requiring a 2-component fit.  G2criteria takes into account the  signal-to-noise ratio of the line in question and the degree to which the data differs from the 1-component Gaussian fit.  The primary factors considered include:
+
          (1) the difference between the position of the absolute maximum of the data and the position of the 1-component Gaussian center; 
+
          (2) the maximum residual between the data and
          the fit, compared to the rms noise level at that frequency tuning; 
+
          (3) the mean residual between the data and the fit, compared to the rms noise level;      
+
          (4) the width of the fit compared to the typical width of features.  The criteria, mostly empirically determined, works very well for this dataset.  However, we advise inspecting results obtained on other datasets carefully and likely adjusting the criteria, as they will change with the parameters of the data.  
+
 5. 'LineID.py' provides semi-automated line identification of features fit over the full spectrum.  FullCode compiles the output of Gfit.py and passes it to LineID, along with one or two csv files containing spectral line catalog data.  The input csv files can quickly and easily be output from the ALMA Spectral Line Catalogue - Splatalogue (Available at www.splatalogue.net; Remijan et al. (2007)) after selecting a set of molecules that might appear in your spectrum.
    
 FullCode manages the full data spectrum, compiles the results of Gfit.GauFit, and calls LineID to output the data.  All of the modules except G2criteria are written to 
