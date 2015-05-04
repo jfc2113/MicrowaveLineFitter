@@ -1,9 +1,17 @@
 All scripts used for automated line fitting and semi-automated line identification are provided in the online journal and in GitHub at https://github.com/jfc2113/MicrowaveLineFitter.  We provide instructions for use including a description of the input and output files and system requirements.
 
 The scripts have been tested in IPYTHON version 0.12.1 with PYTHON 2.7.3, NUMPY 1.6.1, and MATPLOTLIB 1.1.1rc. 
-PYTHON 2.7.3 includes the MATH and CSV modules that are used in the scripts.  
+PYTHON 2.7.3 includes the MATH and CSV modules that are used in the scripts.  A full description of the code follows below.  
 
-The packaged file provided in the journal includes eight scripts, spectra characterized in this work, and csv files holding line data.  
+First, here is the short version:  
+	1. Edit the parameters at the top of FullCode.py and throughout VelocityEditFile.py based on your source kinematics and data range.
+	2. Run the code in ipython with: 
+	 	2.1 '%run FullCode.py'
+		2.2 'cd VEL'
+		2.3 '%run VelocityFileMaker.py
+
+Now, here comes the full description:
+The MicrowaveLineFitter includes eight scripts and three spectra characterized in this work, and csv files holding line data.  
 Two of the scripts are run directly, namely  `FullCode.py' is run before `VelocityFileMaker.py'.
 After optional adjustments by the user, `VelocityFileMaker.py' uses the output of `FullCode.py' to generate a final csv file that contains 
 Gaussian fits to the full spectrum and line identifications.  Of the remaining six scripts, five contain modules called in `FullCode.py'.  The modules 
