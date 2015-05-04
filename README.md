@@ -77,7 +77,7 @@ Within each priority, the VelocityFileMaker also handles wing components.  Some 
          1. H_{Feature}/H_{Primary} < 0.22 and v_{Feature} - v_{Primary} < deltaV_{Primary}
          2. H_{Feature}/H_{Primary} < 0.05 and v_{Feature} - v_{Primary} < 1.5 * deltaV_{Primary}
          
-for the line heights, velocity centers, and FWHM widths (H, v, and deltaV) of the possible wing component (Feature) and the primary component (Primary).  These are assigned a LineType of "wing". Within each priority, VelocityFileMaker identifies the primary components, which must be consistent with the kinematic information input, and then selects any wings associated with these lines.  As such, the recombination lines and wings of recombination lines are identified, followed by designated ``strong lines'' and the wings of strong lines, etc.  
+for the line heights, velocity centers, and FWHM widths (H, v, and deltaV) of the possible wing component (Feature) and the primary component (Primary).  These are assigned a LineType of "wing". Within each priority, VelocityFileMaker identifies the primary components, which must be consistent with the kinematic information input, and then selects any wings associated with these lines.  As such, the recombination lines and wings of recombination lines are identified, followed by designated "strong lines" and the wings of strong lines, etc.  
 
 VelocityFileMaker generates an output csv file entitled "velocity_ALL_(r).csv".  The file 
 contains line rest frequencies, species, transitions, Gaussian fit velocities, heights, widths (in velocity units), 
