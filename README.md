@@ -74,14 +74,11 @@ The code does not handle line blending with much sophistication, however the pri
 
 Within each priority, the VelocityFileMaker also handles wing components.  Some spectral features are non-Gaussian, including recombination lines, strongly masing lines, and optically thick molecular lines.  In FullCode, in which the line fitting is conducted, after subtracting a best-fit 1- or 2-component Gaussian fits from the raw data (called the primary component(s)), high signal-to-noise lines may have wing components with intensities exceeding the detection threshold.  Such wing features, which are typically weak as compared to the primary 1- or 2-component fit, are fit to the residual.  VelocityFileMaker selects these features to prevent them from incorrectly being mis-assigned to other molecular carriers or labelled as unidentified.  Wing features are selected based on (1) their separation from the primary line component as compared to the width of the primary line component and (2) their height as compared to the primary line component.  If a feature meets either of the following criteria, it is identified as a wing of an identified line and the velocity is calculated with respect to the rest frequency of that line. The criteria include:
 
-         1. ${\frac{H_{Feature}}{H_{Primary}}}$\,\textless\,0.22 and $ v - v_{Primary}$\,\textless\,$\Delta v_{Primary}$
-         2. ${\frac{H_{Feature}}{H_{Primary}}}$\,\textless\,0.05 and $ v - v_{Primary}$\,\textless\,$1.5 \times \Delta v_{Primary}$
+         1. H_{Feature}/H_{Primary} < 0.22 and v_{Feature} - v_{Primary} < deltaV_{Primary}
+         2. H_{Feature}/H_{Primary} < 0.05 and v_{Feature} - v_{Primary} < 1.5 * deltaV_{Primary}
+         
+for the line heights, velocity centers, and FWHM widths (H, v, and deltaV) of the possible wing component (Feature) and the primary component (Primary).  These are assigned a LineType of "wing". Within each priority, VelocityFileMaker identifies the primary components, which must be consistent with the kinematic information input, and then selects any wings associated with these lines.  As such, the recombination lines and wings of recombination lines are identified, followed by designated ``strong lines'' and the wings of strong lines, etc.  
 
-where the $\Delta v_{Primary}$ is the FWHM linewidth of the primary component.  These are assigned a LineType of ``wing''.
-Within each priority, VelocityFileMaker identifies the primary components, which must be consistent with the kinematic 
-information input, and then selects any wings associated with these lines.  As such, the recombination lines and wings of recombination 
-lines are identified, followed by designated ``strong lines'' and the wings of strong lines, etc.  
-
-VelocityFileMaker generates an output csv file entitled ``velocity\_ALL\_(r).csv''.  The file 
+VelocityFileMaker generates an output csv file entitled "velocity_ALL_(r).csv".  The file 
 contains line rest frequencies, species, transitions, Gaussian fit velocities, heights, widths (in velocity units), 
 center frequencies, and line types.
