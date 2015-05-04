@@ -19,7 +19,7 @@ Second, we provide a description of the code and process, which is further detai
 
 The MicrowaveLineFitter repository includes eight scripts, five spectra towards positions in Sgr B2, and csv files holding line data.  Two of the scripts are run directly, namely  'FullCode.py' is run before 'VEL/VelocityFileMaker.py'.  After optional adjustments by the user, 'VelocityFileMaker.py' uses the output of 'FullCode.py' to generate a final csv file that contains Gaussian fits to the full spectrum and line identifications.  Of the remaining six scripts, five contain modules called in `FullCode.py'.  The modules and their primary purposes include:
 
-1. 'LineFind.py' grabs segments of the spectrum that contain lines, detecting "line-channels" with single-channel intensity values greater than Sigma_rms times an input threshold.  The module also selects a set number of channels on either side of  line-channels.  The number of neighboring channels has a default value of 5, but can be adjusted when LineFind is called.
+1. 'LineFind.py' grabs segments of the spectrum that contain lines, detecting "line-channels" with single-channel intensity values greater than Sigma_{rms} times an input threshold.  The module also selects a set number of channels on either side of  line-channels.  The number of neighboring channels has a default value of 5, but can be adjusted when LineFind is called.
 
 2. 'FTinterp.py' interpolates a segment of the spectrum, outputting a spectrum with a factor of 3 improvement in the spectral resolution.  It performs the interpolation by Fourier-domain zero padding.  This should only be used for data with poor spectral resolution compared to the linewidths.
 
@@ -33,32 +33,21 @@ FullCode manages the full data spectrum, compiles the results of Gfit.GauFit, an
 be easily tunable, and the main parameters that users will want to adjust are specified and explained in the first section of FullCode.  These parameters include:
 whether the results should be output; what plots should be produced; the names of input files; whether data interpolation is desired; 
 information about the source including guidelines for appropriate linewidths and line velocities; and information about the data structure 
-(e.g. how many separate data sections are in a single spectrum; in this work, the line-fitter inspected a spectrum including 11 tunings, each of which had different $\sigma_{rms}$
+(e.g. how many separate data sections are in a single spectrum; in this work, the line-fitter inspected a spectrum including 11 tunings, each of which had different Sigma_{rms}
 noise levels.  If all tunings have the same noise level in the intensity units you are using, they can be treated as a single section).
 
 FullCode requires a spectrum input in standard ascii format with frequency and baseline subtracted intensity.
-The file `K6\_ALL.txt', provided with the scripts, is in the correct format.  If the user chooses to perform line identification, 
-the script requires files containing recombination line or molecular line data output in csv format from any spectral line catalog.  The line data should 
-be formatted similarly to the files `recomb.csv' and `molecularLine.csv', provided.  If your source has recombination lines, 
-we recommend preserving the file name of `recomb.csv', but including lines that are relevant for your frequency range.  
-All csv files read into the code should be text csv files with {\sc unicode UTF-8} characters and a colon (:) as the field delimiter. 
+The file 'K6\_fullSpec.txt', provided with the scripts, is in the correct format.  If the user chooses to perform line identification, the script requires files containing recombination line or molecular line data output in csv format from any spectral line catalog.  The line data should be formatted similarly to the files 'recombLines.csv' and 'molecularLines.csv', provided.  If your source has recombination lines, we recommend preserving the file name of 'recombLines.csv', but including lines that are relevant for your frequency range.  All csv files read into the code should be text csv files with unicode UTF-8 characters and a colon (:) as the field delimiter. 
 The code outputs csv file data with this format as well.
 
 FullCode plots the full data spectrum with the line fits overlaid and can output a csv file containing Gaussian line fits and line identifications.  This output file is named 
 ALLFITS\_(r).csv, where (r) is the name of the source or region targeted.  It contains:
-\begin{itemize}
- \item Gaussian line fit parameters (height, center frequency, and width in frequency units) of all features.
- \item two measures of the quality of the fit.  First, the rms residual between the data and the fit; second,  for 1-component fits, the file provides
-the offset between the frequency at which the data has its maximum absolute value and the Gaussian center frequency. Fits with abnormally large values may be suspect. 
- \item the `bin' indicates how the line was handled in Gfit.GauFit. Lines with bin = 0 are 1-component fits that were deemed appropriate.  Lines with bin = 1 are 2-component
- fits that were found to be reasonable.  For lines with bin = 2, the data significantly differed from the best 1-component fit obtained, however Gfit.GauFit was unable to 
- obtain a reasonable 2-component fit and therefore used the best 1-component fit obtained.  These should be inspected and possibly re-fit manually.  
- For bin = 3 lines, the residual between the data and the fit
- is significantly larger than the noise level of the spectrum.  These should be inspected and possibly re-fit manually.  Bin = 5 lines are entirely unreasonable,
- with very broad line widths.  They are used as placeholders to enable the code to proceed, and they will need to be re-fit.  Of 488 components fit towards K6, 
-358 have bin = 0, 115 have bin = 1, 1 has bin = 2, 14 have bin = 3, and 0 have bin = 5. 
- \item possible atomic or molecular carriers of the detected Gaussian features.  The output file lists any transitions from the input recomb.csv and
- molecularLine.csv files that are within a specified velocity range of the detected features.  These can be prioritized before running VelocityFileMaker.py to obtain
+1. Gaussian line fit parameters (height, center frequency, and width in frequency units) of all features.
+2. two measures of the quality of the fit.  First, the rms residual between the data and the fit; second,  for 1-component fits, the file provides the offset between the frequency at which the data has its maximum absolute value and the Gaussian center frequency. Fits with abnormally large values may be suspect. 
+3. the `bin' indicates how the line was handled in Gfit.GauFit. Lines with bin = 0 are 1-component fits that were deemed appropriate.  Lines with bin = 1 are 2-component fits that were found to be reasonable.  For lines with bin = 2, the data significantly differed from the best 1-component fit obtained, however Gfit.GauFit was unable to obtain a reasonable 2-component fit and therefore used the best 1-component fit obtained.  These should be inspected and possibly re-fit manually.  For bin = 3 lines, the residual between the data and the fit
+ is significantly larger than the noise level of the spectrum.  These should be inspected and possibly re-fit manually.  Bin = 5 lines are entirely unreasonable, with very broad line widths or unreasonable line heights.  They are used as placeholders to enable the code to proceed, and they will need to be re-fit.  Of 488 components fit towards K6, 358 have bin = 0, 113 have bin = 1, 1 has bin = 2, 14 have bin = 3, and 2 have bin = 0. 
+ \item possible atomic or molecular carriers of the detected Gaussian features.  The output file lists any transitions from the input recombLines.csv and
+ molecularLines.csv files that are within a specified velocity range of the detected features.  These can be prioritized before running VelocityFileMaker.py to obtain
  the final line results.
 \end{itemize}
 
