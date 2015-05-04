@@ -66,28 +66,16 @@ Features that are inconsistent with recombination lines include absorption lines
 
 4. Priority 4: The code then assigns remaining lines tentatively assigned in ALLFITS_(r).csv.  In cases where multiple transitions are near the Gaussian center frequency, the line with the best kinematic match to the velocity, as specified in VelocityEditFile, is output.  While this typically works well 
 at centimeter wavelengths, we recommend inspecting lines that have multiple line entries in ALLFITS_(r).py, especially at higher frequency.  
- If the code gets the ``wrong'' answer at this point, mark the line as blended, and consider only keeping the preferred line in ALLFITS_(r).py
- \item  Priority 5: Finally, the code outputs all fits that were not firmly identified in Priorities 1-4.  These are given a Line Type of ``Unidentified''.  
- If a fit was associated with a known transition in ALLFITS_(r).csv, the transition parameters will be output so that the user can decide whether or not to 
- adopt the transition as identified.
-\end{itemize}
-The code does not handle line blending with much sophistication, however the prioritization system significantly improves the likelihood that most of the line
-radiation can be ascribed to the identified carrier transition.
+If the code gets the "wrong" answer at this point, mark the line as blended, and consider only keeping the preferred line in ALLFITS_(r).py
 
-Within each priority, the script also handles wing components.  As described in \S 3.2, numerous spectral features are non-Gaussian, including recombination lines, 
-strongly masing lines, and optically thick molecular lines.  In FullCode, in which the line fitting is 
-conducted, after subtracting a best-fit 1- or 2-component Gaussian fits from the raw data (called the primary component(s)), 
-high signal-to-noise lines may have wing components with intensities exceeding the detection threshold.  
-Such wing features, which are typically weak as compared to the primary 1- or 2-component fit, are fit to the residual.
-VelocityFileMaker selects these features to prevent them from incorrectly being mis-assigned to other molecular carriers or
-labelled as unidentified.  Wing features are selected based on (1) their separation from the primary line component 
-as compared to the width of the primary line component and (2) their height as compared to the primary line component.  
-If a feature meets either of the following criteria, it is identified as a wing of an identified line and the velocity is 
-calculated with respect to the rest frequency of that line. The criteria include:
-\begin{enumerate}
- \item ${\frac{H_{Feature}}{H_{Primary}}}$\,\textless\,0.22 and $ v - v_{Primary}$\,\textless\,$\Delta v_{Primary}$
- \item ${\frac{H_{Feature}}{H_{Primary}}}$\,\textless\,0.05 and $ v - v_{Primary}$\,\textless\,$1.5 \times \Delta v_{Primary}$,
-\end{enumerate}
+5. Priority 5: Finally, the code outputs all fits that were not firmly identified in Priorities 1-4.  These are given a Line Type of "Unidentified".  If a fit was associated with a known transition in ALLFITS_(r).csv, the transition parameters will be output so that the user can decide whether or not to adopt the transition as identified.
+
+The code does not handle line blending with much sophistication, however the prioritization system significantly improves the likelihood that most of the line radiation can be ascribed to the identified carrier transition.
+
+Within each priority, the VelocityFileMaker also handles wing components.  Some spectral features are non-Gaussian, including recombination lines, strongly masing lines, and optically thick molecular lines.  In FullCode, in which the line fitting is conducted, after subtracting a best-fit 1- or 2-component Gaussian fits from the raw data (called the primary component(s)), high signal-to-noise lines may have wing components with intensities exceeding the detection threshold.  Such wing features, which are typically weak as compared to the primary 1- or 2-component fit, are fit to the residual.  VelocityFileMaker selects these features to prevent them from incorrectly being mis-assigned to other molecular carriers or labelled as unidentified.  Wing features are selected based on (1) their separation from the primary line component as compared to the width of the primary line component and (2) their height as compared to the primary line component.  If a feature meets either of the following criteria, it is identified as a wing of an identified line and the velocity is calculated with respect to the rest frequency of that line. The criteria include:
+
+         1. ${\frac{H_{Feature}}{H_{Primary}}}$\,\textless\,0.22 and $ v - v_{Primary}$\,\textless\,$\Delta v_{Primary}$
+         2. ${\frac{H_{Feature}}{H_{Primary}}}$\,\textless\,0.05 and $ v - v_{Primary}$\,\textless\,$1.5 \times \Delta v_{Primary}$
 
 where the $\Delta v_{Primary}$ is the FWHM linewidth of the primary component.  These are assigned a LineType of ``wing''.
 Within each priority, VelocityFileMaker identifies the primary components, which must be consistent with the kinematic 
