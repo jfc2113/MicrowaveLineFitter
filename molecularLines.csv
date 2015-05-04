@@ -1,0 +1,549 @@
+sid[0] is nullSpecies:Chemical Name:Freq-GHz:Resolved<br>QNs:Lovas/AST<br>Intensity:Linelist
+t-CH3CH2OH:trans-Ethanol:29.70062:2(2,0)-3(1,3):0.35627:JPL
+HCCNCv=0:Ethyne Isocyanide:29.80696:3-2:0.16:Lovas
+CH3OCH3:Dimethyl ether:29.9014:1(1,0)-1(0,1) EE::JPL
+NH3v=0:Ammonia:29.91449:11(11)0a-11(11)0s:0.44:Lovas
+t-CH3CH2OH:trans-Ethanol:29.97938:3(1,2)-3(0,3):3.4925:JPL
+SO3&Sigma;v=0:Sulfur Monoxide:30.00155:1(0)-0(1):0.44:Lovas
+NaCN/NaNC:Sodium Cyanide:30.1806:2(1,2)-1(1,1):117.48375:SLAIM
+C6H&#150;:1,3,5-Hexatriynyl anion:30.29081:11-10:0.015:Lovas
+CNCHO:Cyanoformaldehyde:30.29418:9(0,0)-8(1,8):0.023:Lovas
+CH3OHvt=0:Methanol:30.30802:17(2,15)-17(1,16):0.5:Lovas
+HC7Nv=0:2,4,6-Heptatriynenitrile:30.45574:J=27-26:0.054:Lovas
+CH3OCHOv=0:Methyl Formate:30.55982:5(1,4)-4(2,3)A::JPL
+CH3OCHOv=0:Methyl Formate:30.5641:5(1,4)-4(2,3)E::JPL
+CH3OCHOv=0:Methyl Formate:30.69515:9(2,7)-9(2,8)E::JPL
+CH3OCHOv=0:Methyl Formate:30.70254:9(2,7)-9(2,8)A::JPL
+CH3OHvt=0:Methanol:30.85828:18(2,16)-18(1,17): 0.5e:Lovas
+CH3CHOv=0:Acetaldehyde:30.94133:8(1,7)-7(2,6)A::JPL
+CH3OCH3:Dimethyl ether:30.96655:5(3,3)-6(2,4)EA::SLAIM
+CH3OCH3:Dimethyl ether:30.97097:5(3,3)-6(2,4)AE::SLAIM
+CH3OCH3:Dimethyl ether:30.97314:5(3,3)-6(2,4)EE::SLAIM
+CH3OCH3:Dimethyl ether:30.97786:5(3,3)-6(2,4)AA::SLAIM
+HDCS:Thioformaldehyde:31.0023:1(0,1)-0(0,0):0.141:Lovas
+CH3OCH3:Dimethyl ether:31.10522:2(1,1)-2(0,2)AE:  b:Lovas
+CH3OCH3:Dimethyl ether:31.10522:2(1,1)-2(0,2)AE:  b:SLAIM
+CH3OCH3:Dimethyl ether:31.10523:2(1,1)-2(0,2)EA:  b:Lovas
+CH3OCH3:Dimethyl ether:31.10523:2(1,1)-2(0,2)EA:  b:SLAIM
+CH3OCH3:Dimethyl ether:31.10615:2(1,1)-2(0,2)EE: 0.2b:Lovas
+CH3OCH3:Dimethyl ether:31.10615:2(1,1)-2(0,2)EE: 0.2b:SLAIM
+CH3OCH3:Dimethyl ether:31.10707:2(1,1)-2(0,2)AA:  b:Lovas
+CH3OCH3:Dimethyl ether:31.10707:2(1,1)-2(0,2)AA:  b:SLAIM
+CH3OCHOv=0:Methyl Formate:31.2415:12(1,11)-11(3,8)A::JPL
+NaCN/NaNC:Sodium Cyanide:31.26233:2(0,2)-1(0,1):156.62934:SLAIM
+CH3OCHO :Methyl Formate:31.26254:11(7,5)-12(6,6)A::JPL
+CH3OCHOv=0:Methyl Formate:31.28504:12(1,11)-11(3,8)E::JPL
+CH3OHvt=0:Methanol:31.35835:20(2,18)-20(1,19): 0.4e:Lovas
+NH3v=0:Ammonia:31.42494:12(12)0a-12(12)0s:0.3:Lovas
+HC7Nv=0:2,4,6-Heptatriynenitrile:31.58371:J=28-27:0.3:Lovas
+cis-CH2OHCHOv=0:Glycolaldehyde:31.72707:5(2,3)-5(1,4):9.39099:JPL
+cis-CH2OHCHOv=0:Glycolaldehyde:31.83303:6(2,4)-6(1,5):-5.4369:
+CH3CH2CHO:Propanol:31.911198:3(2,1)-2(2,0)::
+H2COH+:Hydroxymethylium ion:31.91462:3(0,3)-2(1,2):0.097:Lovas
+HCC13CCCN:Cyanobutadiyne:31.91869:12-11:0.005:Lovas
+SO2v=0:Sulfur dioxide:31.92221:16(4,12)-17(3,15):-5.3863:CDMS
+SO2v=0:Sulfur dioxide:31.92221:16(4,12)-17(3,15):-5.3863:
+HCCC13CCN:Cyanobutadiyne:31.92257:12-11:0.005:Lovas
+HC5Nv=0:Cyanobutadiyne:31.95178:J=12-11:1.77:Lovas
+CH3OCH3:Dimethyl ether:31.9961:9(2,7)-8(3,6)AA::SLAIM
+CH3OCH3:Dimethyl ether:31.99935:9(2,7)-8(3,6)EE::SLAIM
+CH3OCH3:Dimethyl ether:32.00245:9(2,7)-8(3,6)AE::SLAIM
+CH3OCH3:Dimethyl ether:32.00276:9(2,7)-8(3,6)EA::SLAIM
+NH2CHO:Formamide:32.29726:6(1,5)-6(1,6)::SLAIM
+NaCN/NaNC:Sodium Cyanide:32.37367:2(1,1)-1(1,0):117.48375:SLAIM
+13CH3OH:Methanol:32.398556:4(-1,4)-3(0,3)::SLAIM
+CH3CHOv=0:Acetaldehyde:32.48607:8(1,7)-7(2,6)E::JPL
+CH3C4H:Methyl diacetylene:32.57144:8(1)-7(1):0.08:Lovas
+CH3C4H:Methyl diacetylene:32.57176:8(0)-7(0):0.08:Lovas
+l-C3Hv=0:Propynylidyne:32.61702:2P1/2J=3/2-1/2F=1-1f:0.08:Lovas
+l-C3Hv=0:Propynylidyne:32.6273:2P1/2J=3/2-1/2,F=2-1f:0.28:Lovas
+l-C3Hv=0:Propynylidyne:32.63439:2P1/2J=3/2-1/2,F=1-0f:0.13:Lovas
+l-C3Hv=0:Propynylidyne:32.66065:2P1/2J=3/2-1/2,F=2-1e:0.35:Lovas
+l-C3Hv=0:Propynylidyne:32.66338:2P1/2J=3/2-1/2,F=1-0e:0.17:Lovas
+l-C3Hv=0:Propynylidyne:32.66764:2P1/2J=3/2-1/2F=1-1e:0.06:Lovas
+cis-CH2OHCHOv=0:Glycolaldehyde:32.67252:4(2,2)-4(1,3):6.48021:JPL
+CH3CHO:Acetaldehyde:32.70918:4(0,4)-3(1,3)A::JPL
+CH3CHOv=0:Acetaldehyde:32.70918:4(0,4)-3(1,3)A::JPL
+t-CH3CH2OH:trans-Ethanol:32.742823:4(1,3)-4(0,4)::JPL
+CH3OCH3:Dimethyl ether:32.97727:3(1,2)-3(0,3)AE::SLAIM
+CH3OCH3:Dimethyl ether:32.97728:3(1,2)-3(0,3)EA::SLAIM
+CH3OCH3:Dimethyl ether:32.97734:3(1,2)-3(0,3)AE::JPL
+CH3OCH3:Dimethyl ether:32.97823:3(1,2)-3(0,3)EE::SLAIM
+CH3OCH3:Dimethyl ether:32.97918:3(1,2)-3(0,3)AA::SLAIM
+CH3C3N:2-Butynenitrile:33.05162:8(0)-7(0):0.057:Lovas
+NH3v=0:Ammonia:33.15685:13(13)0a-13(13)0s:0.1:Lovas
+CH3OCHOv=0:Methyl Formate:33.1642:6(1,5)-6(1,6)E::JPL
+CH3OCHOv=0:Methyl Formate:33.18627:6(1,5)-6(1,6)A::JPL
+CH3CHOv=0:Acetaldehyde:33.23647:4(0,4)-3(1,3)E::JPL
+UnidentifiedTransition:UNIDENTIFIED:33.3323:U-33332.3:0.008:Lovas
+CH3OCHOv=0:Methyl Formate:33.33766:10(2,9)-9(3,6)A::JPL
+UnidentifiedTransition:UNIDENTIFIED:33.3393:U-33339.3:0.008:Lovas
+cis-CH2OHCHOv=0:Glycolaldehyde:33.35401:2(1,2)-1(0,1):0.55162:JPL
+CH3OCHOv=0:Methyl Formate:33.36639:10(2,9)-9(3,6)E::JPL
+CH3OCH3:Dimethyl ether:33.39274:5(3,2)-6(2,5)AE::SLAIM
+CH3OCH3:Dimethyl ether:33.39716:5(3,2)-6(2,5)EA::SLAIM
+CH3OCH3:Dimethyl ether:33.39749:5(3,2)-6(2,5)EE::SLAIM
+CH3OCH3:Dimethyl ether:33.39967:5(3,2)-6(2,5)AA::SLAIM
+CH2NH:Methanimine:33.704825:1(1,1)-2(0,2)::
+CCS:Thioxoethenylidene:33.75137:3,2-2,1:0.032:Lovas
+HC7Nv=0:2,4,6-Heptatriynenitrile:33.83963:J=30-29:0.074:Lovas
+CH3OCHOv=0:Methyl Formate:34.15688:3(1,3)-2(1,2)E::JPL
+CH3OCHO :Methyl Formate:34.15688:3(1,3)-2(1,2)E::JPL
+CH3OCHOv=0:Methyl Formate:34.15812:3(1,3)-2(1,2)A::JPL
+CH3CCHv=0:Methyl Acetylene:34.18276:2(1)-1(1):0.2:Lovas
+CH3CCHv=0:Methyl Acetylene:34.18341:2(0)-1(0):0.25:Lovas
+cis-CH2OHCHOv=0:Glycolaldehyde:34.22547:3(2,1)-3(1,2):4.13905:JPL
+H2CS:Thioformaldehyde:34.35145:1(0,1)-0(0,0):0.684:Lovas
+HSCN:Thiocyanic Acid:34.408629:3(0,3)-2(0,2)::CDMS
+HC5Nv=0:Cyanobutadiyne:34.61438:J=13-12:1.5:Lovas
+HC3NH+:Protonate 2-proynenitrile:34.63191:J=4-3:0.048:Lovas
+CH3OCHOv=0:Methyl Formate:34.67176:6(2,4)-6(1,5)E::JPL
+CH3OCH3:Dimethyl ether:34.67956:2(2,0)-3(1,3)AE::SLAIM
+CH3OCH3:Dimethyl ether:34.68141:2(2,0)-3(1,3)EA::SLAIM
+CH3OCH3:Dimethyl ether:34.68256:2(2,0)-3(1,3)EE::SLAIM
+CH3OCHOv=0:Methyl Formate:34.68281:6(2,4)-6(1,5)A::JPL
+CCCS:3-Thioxo-1,2-Propadieylidene:34.68437:6-5:0.022:Lovas
+CH3OCH3:Dimethyl ether:34.68459:2(2,0)-3(1,3)AA::SLAIM
+CH3OCHOv=0:Methyl Formate:34.766:5(2,3)-5(1,4)E::JPL
+t-CH2CHCHO:Propynal?:34.76897:4(1,4)-3(1,3)::JPL?
+CH3OCHOv=0:Methyl Formate:34.77565:5(2,3)-5(1,4)A::JPL
+CH3CH2CNv=0:Ethyl Cyanide:34.82407:4(1,4)-3(1,3)::JPL
+HCNv2=1:Hydrogen Cyanide:34.95378:J=12-12,l=1f:0.07:Lovas
+HC7Nv=0:2,4,6-Heptatriynenitrile:34.96759:J=31-30:0.07:Lovas
+CH2NH:Methanimine:35.065726:3(0,3)-2(1,2)::
+NH3v=0:Ammonia:35.1343:14(14)0a-14(14)0s:0.06:Lovas
+CH3OCHOv=0:Methyl Formate:35.17747:4(4,1)-5(3,2)A::JPL
+H13CCCNv=0:Cyanoacetylene:35.26741:J=4-3:  b:Lovas
+CH3CHOv=0:Acetaldehyde:35.31236:4(2,3)-5(1,4)E::JPL
+HCCC15Nv=0:Cyanoacetylene:35.33389:4-3:0.11:Lovas
+c-HCCCH :Cyclopropenylidene:35.3609294:4(4,0)-4(3,1)::JPL
+CH3OCHOv=0:Methyl Formate:35.38837:4(4,0)-5(3,3)A::JPL
+CH3CHOv=0:Acetaldehyde:35.47215:5(2,4)-6(1,6)E::JPL
+l-C4H2:Butatrienylidene:35.57701:4(1,4)-3(1,3):0.006:Lovas
+CH3OCH3:Dimethyl ether:35.59241:4(1,3)-4(0,4)AE::SLAIM
+CH3OCH3:Dimethyl ether:35.59242:4(1,3)-4(0,4)EA::SLAIM
+CH3OCH3:Dimethyl ether:35.5934:4(1,3)-4(0,4)EE::JPL
+CH3OCH3:Dimethyl ether:35.5934:4(1,3)-4(0,4)EE::SLAIM
+CH3OCH3:Dimethyl ether:35.59439:4(1,3)-4(0,4)AA::SLAIM
+t-CH2CHCHO:Propenal:35.606409:4(2,3)-3(2,2)::SLAIM
+CH3OCHOv=0:Methyl Formate:35.68578:12(2,11)-11(3,8)A::JPL
+CH3CH2CNv=0:Ethyl Cyanide:35.72221:4(0,4)-3(0,3)::SLAIM
+CH3OCHOv=0:Methyl Formate:35.73251:12(2,11)-11(3,8)E::JPL
+13CH3CN:Methyl Cyanide:35.732323:2(1)-1(1)::
+13CH3CN:Methyl Cyanide:35.733116:2(0)-1(0)::SLAIM
+MgNCv=0:Magnesium Isocyanide:35.79331:N=3-2,J=5/2-3/2:0.014:Lovas
+l-C5H:2,4-Pentadiynylidyne:35.80681:J=15/2-13/2,&Omega;=1/2,F=8-7,l=f:0.06:Lovas
+l-C5H:2,4-Pentadiynylidyne:35.80706:J=15/2-13/2,&Omega;=1/2,F=7-6,l=f:0.05:Lovas
+CH3CHO:Acetaldehyde:35.83733:2(1,2)-1(1,0)E::JPL
+CH3CHOv=0:Acetaldehyde:35.83733:2(1,2)-1(1,0)E::JPL
+CH3OCHOv=0:Methyl Formate:35.8855:4(2,2)-4(1,3)E::JPL
+CH3OCHOv=0:Methyl Formate:35.89364:2(1,2)-1(0,1)E::JPL
+CH3OCHOv=0:Methyl Formate:35.89384:4(2,2)-4(1,3)A::JPL
+CH3OCHOv=0:Methyl Formate:35.8991:2(1,2)-1(0,1)A::JPL
+CH3OCHOv=0:Methyl Formate:35.90187:11(2,10)-10(3,7)A::JPL
+cis-CH2OHCHOv=0:Glycolaldehyde:35.90332:2(2,0)-2(1,1):2.37656:JPL
+CH3OCHOv=0:Methyl Formate:35.93869:11(2,10)-10(3,7)E::JPL
+CH3OCHOv=0:Methyl Formate:35.97434:7(2,5)-7(1,6)E::JPL
+CH3OCHOv=0:Methyl Formate:35.98767:7(2,5)-7(1,6)A::JPL
+SO2v=0:Sulfur dioxide:36.06523:31(7,25)-32(6,26):-5.5912:
+HC7Nv=0:2,4,6-Heptatriynenitrile:36.09555:J=32-31:0.083:Lovas
+CH3OCHOv=0:Methyl Formate:36.10222:3(0,3)-2(0,2)E::JPL
+CH3OCH3:Methyl Formate:36.102224:3(0,3)-2(0,2)E::JPL
+CH3OCH3:Methyl Formate:36.10479:3(0,3)-2(0,2)A::JPL
+CH3OCHOv=0:Methyl Formate:36.10479:3(0,3)-2(0,2)A::JPL
+CH3OHvt=0:Methanol:36.16929:4(-1,4)-3(0,3):12.5:Lovas
+SO3&Sigma;v=0:Sulfur Monoxide:36.20204:2(3)-2(2):0.4:Lovas
+HC13CCN:Cyanoacetylene:36.23795:J=4-3:  b:Lovas
+HCC13CN:Cyanoacetylene:36.24144:J=4-3:  b:Lovas
+H2COH+:Hydroxymethylium ion:36.29995:1(1,1)-2(0,2):-0.123:Lovas
+SiSv=0:Silicon monosulfide  :36.30963:2-1:0.5:Lovas
+SO2v=0:Sulfur dioxide:36.33805:30(5,25)-29(6,24):-5.4759:
+HC3N:Cyanoacetylene:36.39232:J=4-3:0.8:Lovas
+t-CH3CH2OH:trans-Ethanol:36.417244:5(1,4)-5(0,5)::JPL
+UnidentifiedTransition:UNIDENTIFIED:36.4181:U-36418.1:0.023:Lovas
+CH3OCHOv=0:Methyl Formate:36.44481:11(3,9)-10(4,6)A::JPL
+CH3OCHOv=0:Methyl Formate:36.45022:11(3,9)-10(4,6)E::JPL
+HC3Nv6=1:Cyanoacetylene:36.45197:J=4-3,l=1e: 0.8f:Lovas
+CH3OCHOv=0:Methyl Formate:36.47565:3(2,2)-2(2,0)E::JPL
+HC3Nv6=1:Cyanoacetylene:36.48067:J=4-3,l=1f:  b:Lovas
+HC3Nv7=1:Cyanoacetylene:36.4818:J=4-3,l=1e: 3.2bf:Lovas
+OCSv=0:Carbonyl Sulfide:36.48881:3-2:0.06:Lovas
+CH3OCHOv=0:Methyl Formate:36.51866:10(3,7)-9(4,6)A::JPL
+HC3Nv7=1:Cyanoacetylene:36.5341:J=4-3,l=1f: 2.4f:Lovas
+CH3OCHOv=0:Methyl Formate:36.56083:10(3,7)-9(4,6)E::JPL
+HC3Nv6=1,v7=1:Cyanoacetylene:36.58192:J=4-3,l=0+:  b:Lovas
+HC3Nv6=1,v7=1:Cyanoacetylene:36.58215:J=4-3,l=0-:  b:Lovas
+HC3Nv6=1,v7=1:Cyanoacetylene:36.58353:J=4-3,l=2-:  b:Lovas
+HC3Nv6=1,v7=1:Cyanoacetylene:36.58354:J=4-3,l=2+: 0.6bf:Lovas
+HC3Nv7=2:Cyanoacetylene:36.6232:J=4-3,l=2e:  b:Lovas
+HC3Nv7=2:Cyanoacetylene:36.62335:J=4-3,l=2f:  b:Lovas
+HC3Nv7=2:Cyanoacetylene:36.62343:J=4-3,l=0: 1.6bf:Lovas
+CH3C4H:Methyl diacetylene:36.64281:9(1)-8(1):0.06:Lovas
+CH3C4H:Methyl diacetylene:36.64317:9(0)-8(0):0.08:Lovas
+CH3OCHOv=0:Methyl Formate:36.65747:3(2,2)-2(2,1)A::JPL
+CH3OCHOv=0:Methyl Formate:36.67861:3(2,2)-2(2,1)E::JPL
+CH3CH2CNv=0:Ethyl Cyanide:36.73967:4(1,3)-3(1,2)::CDMS
+CH313CN:Methyl Cyanide:36.7768335:2(1)-1(1)::JPL
+CH313CN:Methyl Cyanide:36.77728:2(0)-1(0)::
+CH3CNv=0:Methyl Cyanide:36.793709:2(1)-1(1)::
+CH3CNv=0:Methyl Cyanide:36.79547:2(0)-1(0):0.13:Lovas
+CH3OCHOv=0:Methyl Formate:36.92785:6(1,5)-6(0,6)E::JPL
+Z-CH3CHNH:Ethanimine:36.930703:2(0,2)-1(0,1) E::
+Z-CH3CHNH:Ethanimine:36.932722:2(0,2)-1(0,1) A::
+CH3OCHOv=0:Methyl Formate:36.94931:6(1,5)-6(0,6)A::JPL
+CH2CHCNv=0:Vinyl Cyanide:37.01892:4(1,4)-3(1,3):0.05:Lovas
+CH3OCHOv=0:Methyl Formate:37.18212:3(2,1)-2(2,0)E::JPL
+CH3OCHOv=0:Methyl Formate:37.20962:3(2,1)-2(2,0)A::JPL
+HC7Nv=0:2,4,6-Heptatriynenitrile:37.2235:J=33-32:0.092:Lovas
+CH3OCH3:Dimethyl ether:37.26121:8(1,8)-7(2,5)AA::SLAIM
+CH3OCH3:Dimethyl ether:37.26385:8(1,8)-7(2,5)EE::SLAIM
+CH3OCH3:Dimethyl ether:37.26648:8(1,8)-7(2,5)EA::SLAIM
+CH3OCH3:Dimethyl ether:37.26649:8(1,8)-7(2,5)AE::SLAIM
+HC5Nv=0:Cyanobutadiyne:37.27699:J=14-13:2.09:Lovas
+HCCCHO:2-Propynal:37.29015:4(0,4)-3(0,3):0.043:Lovas
+SO2v=0:Sulfur dioxide:37.35181:21(3,19)-20(4,16):-5.2588:
+CH3OCHOv=0:Methyl Formate:37.38502:3(2,1)-2(2,1)E::JPL
+NH3v=0:Ammonia:37.38512:15(15)0a-15(-15)0s::SLAIM
+CH3CHOv=0:Acetaldehyde:37.464168:2(1,2)-1(1,1)A:-5.6959:JPL
+CH3CHOv=0:Acetaldehyde:37.46417:2(1,2)-1(1,1)A::JPL
+CH3CHOv=0:Acetaldehyde:37.51632:4(2,3)-5(1,4)A::JPL
+CH3OCH3:Dimethyl ether:37.53368:6(1,5)-5(2,4)AA::SLAIM
+CH3OCH3:Dimethyl ether:37.53579:6(1,5)-5(2,4)EE::SLAIM
+CH3OCH3:Dimethyl ether:37.53788:6(1,5)-5(2,4)AE::SLAIM
+CH3OCH3:Dimethyl ether:37.53793:6(1,5)-5(2,4)EA::SLAIM
+CH3OCHOv=0:Methyl Formate:37.57655:3(2,1)-3(1,2)E::JPL
+CH3OCHOv=0:Methyl Formate:37.5808:3(2,1)-3(1,2)A::JPL
+CH3CHOv=0:Acetaldehyde:37.64173:4(2,2)-5(1,4)E::JPL
+CH3CHOv=0:Acetaldehyde:37.686868:2(1,2)-1(1,1)E:-5.72:JPL
+CH3CHOv=0:Acetaldehyde:37.68687:2(1,2)-1(1,1)E::JPL
+CH3OHvt=0:Methanol:37.7037:7(-2,6)-8(-1,8): 4.0e:Lovas
+CH3CHOv=0:Acetaldehyde:37.8514:5(2,3)-6(1,6)E::JPL
+CH3OCHOv=0:Methyl Formate:37.88236:4(0,4)-3(1,3)E::JPL
+CH3OCHOv=0:Methyl Formate:37.88305:4(0,4)-3(1,3)A::JPL
+CH2CHCNv=0:Vinyl Cyanide:37.90485:4(0,4)-3(0,3),F=4-3:0.17:Lovas
+C4Hv=0:1,3-Butadiynyl radical:38.04962:N=4-3,J=9/2-7/2,F=4-3:b:Lovas
+C4Hv=0:1,3-Butadiynyl radical:38.04969:N=4-3,J=9/2-7/2,F=5-4:0.088b:Lovas
+C4Hv=0:1,3-Butadiynyl radical:38.05943:N=4-3,J=7/2-7/2,F=4-4:0.06:Lovas
+C4Hv=0:1,3-Butadiynyl radical:38.07893:N=4-3,J=7/2-7/2,F=3-3:0.08:Lovas
+C4Hv=0:1,3-Butadiynyl radical:38.08844:N=4-3,J=7/2-5/2,F=4-3:b:Lovas
+C4Hv=0:1,3-Butadiynyl radical:38.08848:N=4-3,J=7/2-5/2,F=5-4:0.064b:Lovas
+CH3CHOv=0:Acetaldehyde:38.13844:5(2,3)-6(1,6)A::JPL
+CH3CHOv=0:Acetaldehyde:38.15098:8(1,7)-8(1,8)E::JPL
+CH3OCHOv=0:Methyl Formate:38.15414:6(5,2)-7(4,4)E::JPL
+CH3OCHOv=0:Methyl Formate:38.18714:6(5,2)-7(4,3)A::JPL
+CH3OCHOv=0:Methyl Formate:38.21195:6(5,1)-7(4,3)E::JPL
+CH3CHOv=0:Acetaldehyde:38.24071:8(1,7)-8(1,8)A::JPL
+CH3OCHOv=0:Methyl Formate:38.24315:6(5,1)-7(4,4)A::JPL
+HNCHCN:cyanomethanimine:38.271019:4(0,4)-3(0,3)::
+CH3OHvt=0:Methanol:38.29329:6(2,5)-5(3,2)--: 9.0e:Lovas
+CH3OHvt=0:Methanol:38.45265:6(2,4)-5(3,3)++:15.0e:Lovas
+CCCO:3-Oxo-1,2-Propadienylidene:38.48689:4-3:0.09:Lovas
+CH3CHOv=0:Acetaldehyde:38.506:2(0,2)-1(0,1)E::JPL
+CH3CHOv=0:Acetaldehyde:38.50604:2(0,2)-1(0,1)E:0.06:Lovas
+CH3CHOv=0:Acetaldehyde:38.51208:2(0,2)-1(0,1)A:0.05:Lovas
+CH3CHOv=0:Acetaldehyde:38.51211:2(0,2)-1(0,1)A::JPL
+SO2v=0:Sulfur dioxide:38.51823:15(4,12)-16(3,13):-5.2284:
+t-CH3CH2OH:trans-Ethanol:38.674526:6(1,5)-5(2,4)::JPL
+CH2CHCNv=0:Vinyl Cyanide:38.847734:4(1,3)-3(1,2):0.08:Lovas
+CCS:Thioxoethenylidene:38.86642:3,3-2,2:0.43:Lovas
+CH3OCHOv=0:Methyl Formate:38.95863:8(2,6)-8(1,7)E::JPL
+CH3OCHOv=0:Methyl Formate:38.97594:8(2,6)-8(1,7)A::JPL
+CH3OCHOv=0:Methyl Formate:38.97594:3(1,2)-2(1,1)E::JPL
+CH3OCHOv=0:Methyl Formate:38.98081:3(1,2)-2(1,1)A::JPL
+CH3OCH3:Dimethyl ether:39.0473:5(1,4)-5(0,5)::SLAIM
+CH3OCHOv=0:Methyl Formate:39.16758:2(2,1)-2(1,1)E::JPL
+CH3OCHOv=0:Methyl Formate:39.35199:2(2,0)-2(1,1)A::JPL
+CH3CHOv=0:Acetaldehyde:39.3625:2(1,1)-1(1,0)E::JPL
+CH3OCHOv=0:Methyl Formate:39.37051:2(2,0)-2(1,1)E::JPL
+HC7Nv=0:2,4,6-Heptatriynenitrile:39.47939:J=35-34:0.097:Lovas
+CCCNv=0:Cyanoethynyl:39.57133:N=4-3,J=9/2-7/2,F=7/2-5/2:  b:Lovas
+CCCNv=0:Cyanoethynyl:39.57133:N=4-3,J=9/2-7/2,F=9/2-7/2: 0.14b:Lovas
+CCCNv=0:Cyanoethynyl:39.571398:N=4-3,J=9/2-7/2,F=11/2-9/2::CDMS
+CCCNv=0:Cyanoethynyl:39.5714:N=4-3,J=9/2-7/2,F=11/2-9/2:0.11:Lovas
+c-H2COCH2:Ethylene Oxide:39.5816:1(0,1)-0(0,0):0.08:Lovas
+CCCNv=0:Cyanoethynyl:39.59021:N=4-3,J=7/2-5/2,F=7/2-5/2:  b:Lovas
+CCCNv=0:Cyanoethynyl:39.59022:N=4-3,J=7/2-5/2,F=9/2-7/2: 0.17b:Lovas
+CH3CHO:Acetaldehyde:39.59429:2(1,1)-1(1,0) A::JPL
+CH3CHOv=0:Acetaldehyde:39.59429:2(1,1)-1(1,0)A::JPL
+NH2CN:Cyanamide:39.72538:2(1,2)-1(1,1),v=0:10.7395:JPL
+HCCNCv=0:Ethyne Isocyanide:39.74255:4-3:0.5:Lovas
+CH2CN:Cyanomethyl:39.92477:2(1,2)-1(1,1)::CDMS
+HC5Nv=0:Cyanobutadiyne:39.93957:J=15-14:1.8:Lovas
+NH3v=0:Ammonia:39.94141:16(16)0a-16(16)0s::
+c-H2C3O:Cyclopropenone:39.9567:3(1,3)-2(1,2)::CDMS
+NH2CN:Cyanamide:39.99094:2(0,2)-1(0,1),v=0:0.667:JPL
+H2CCO:Ketene:40.03902:2(1,2)-1(1,1):0.09:Lovas
+CH3NC:Methyl isocyanide:40.21049:2(1)-1(1)::SLAIM
+CH2CN:Cyanomethyl:40.22966:2(0,2)-1(0,1),J=5/2-3/2,F1=7/2-5/2,F=7/2-7/2:0.02:Lovas
+CH2CN:Cyanomethyl:40.2328:2(0,2)-1(0,1),J=3/2-1/2,F1=3/2-1/2,F=5/2-3/2:0.04:Lovas
+CH2CN:Cyanomethyl:40.23919:2(0,2)-1(0,1),J=5/2-3/2,F1=7/2-5/2,F=5/2-3/2:0.11:Lovas
+CH2CN:Cyanomethyl:40.2397:2(0,2)-1(0,1),J=5/2-3/2,F1=7/2-5/2,F=7/2-5/2:0.14:Lovas
+CH2CN:Cyanomethyl:40.24:2(0,2)-1(0,1),J=5/2-3/2,F1=7/2-5/2,F=9/2-7/2:0.24:Lovas
+CH2CN:Cyanomethyl:40.24202:2(0,2)-1(0,1),J=5/2-3/2,F1=3/2-1/2,F=3/2-3/2:0.03:Lovas
+CH2CN:Cyanomethyl:40.24221:2(0,2)-1(0,1),J=5/2-3/2,F1=5/2-3/2,F=5/2-3/2:0.07:Lovas
+CH2CN:Cyanomethyl:40.24322:2(0,2)-1(0,1),J=5/2-3/2,F1=3/2-1/2,F=5/2-3/2:0.1:Lovas
+CH2CN:Cyanomethyl:40.24434:2(0,2)-1(0,1),J=5/2-3/2,F1=5/2-3/2,F=7/2-5/2:0.1:Lovas
+CH2CN:Cyanomethyl:40.24754:2(0,2)-1(0,1),J=3/2-1/2,F1=5/2-3/2,F=5/2-3/2:  b:Lovas
+CH2CN:Cyanomethyl:40.24758:2(0,2)-1(0,1),J=3/2-3/2,F1=5/2-5/2,F=7/2-5/2: 0.21b:Lovas
+CH2CN:Cyanomethyl:40.24783:2(0,2)-1(0,1),J=5/2-3/2,F1=3/2-1/2,F=3/2-1/2:0.04:Lovas
+CH2CN:Cyanomethyl:40.24818:2(0,2)-1(0,1),J=5/2-3/2,F1=5/2-5/2,F=3/2-3/2:0.02:Lovas
+CH2CN:Cyanomethyl:40.24858:2(0,2)-1(0,1),J=3/2-1/2,F1=5/2-3/2,F=3/2-1/2:0.05:Lovas
+CH2CN:Cyanomethyl:40.24934:2(0,2)-1(0,1),J=3/2-1/2,F1=1/2-1/2,F=3/2-3/2:0.03:Lovas
+CH2CN:Cyanomethyl:40.25043:2(0,2)-1(0,1),J=3/2-3/2,F1=3/2-1/2,F=1/2-1/2:0.02:Lovas
+CH2CN:Cyanomethyl:40.25186:2(0,2)-1(0,1),J=3/2-3/2,F1=5/2-3/2,F=5/2-5/2:0.03:Lovas
+NH2CN:Cyanamide:40.25284:2(1,1)-1(1,0),v=0:10.7483:JPL
+CH2CN:Cyanomethyl:40.25388:2(0,2)-1(0,1),J=3/2-1/2,F1=5/2-3/2,F=3/2-3/2:0.02:Lovas
+CH2CN:Cyanomethyl:40.25624:2(0,2)-1(0,1),J=3/2-3/2,F1=3/2-3/2,F=3/2-3/2:0.03:Lovas
+CH2CN:Cyanomethyl:40.2581:2(0,2)-1(0,1),J=5/2-3/2,F1=3/2-3/2,F=1/2-1/2:0.02:Lovas
+CH2CN:Cyanomethyl:40.25984:2(0,2)-1(0,1),J=3/2-3/2,F1=3/2-5/2,F=3/2-5/2:0.01:Lovas
+CH2CN:Cyanomethyl:40.26024:2(0,2)-1(0,1),J=3/2-1/2,F1=1/2-1/2,F=1/2-3/2:0.02:Lovas
+HCS:Thioxomethyl:40.2821:1(0,1)-0(0,0)::CDMS
+Si18Ov=0:Silicon Monoxide:40.35277:1-0:0.15:Lovas
+H2CCO:Ketene:40.41795:2(0,2)-1(0,1):0.08:Lovas
+CCCS:3-Thioxo-1,2-Propadieylidene:40.46501:7-6:0.88:Lovas
+CH2CN:Cyanomethyl:40.6586:2(0,2)-1(0,1),J=5/2-3/2:0.03:CDMS
+HCNv2=1:Hydrogen Cyanide:40.76689:J=13-13,l=1f:0.11:Lovas
+H2CCO:Ketene:40.79384:2(1,1)-1(1,0):0.11:Lovas
+NH2CHO:Formamide:40.87544:2(1,2)-1(1,1)::SLAIM
+NH2CHO:Formamide:40.875441:2(1,2)-1(1,1)::SLAIM
+CH3OCHOv=0:Methyl Formate:41.05515:8(6,3)-9(5,5)E::JPL
+CH3OCHOv=0:Methyl Formate:41.11275:8(6,2)-9(5,4)E::JPL
+CH3OCHOv=0:Methyl Formate:41.11357:8(6,3)-9(5,4)A::JPL
+CH3OCHOv=0:Methyl Formate:41.11897:10(2,8)-10(2,9)E::JPL
+t-CH3CH2OH:trans-Ethanol:41.12495:6(1,5)-6(0,6)::SLAIM
+CH3OCHOv=0:Methyl Formate:41.1274:8(6,2)-9(5,5)A::JPL
+CH3OCHOv=0:Methyl Formate:41.15073:10(2,8)-10(2,9)A::JPL
+SO2v=0:Sulfur dioxide:41.17746:36(8,28)-37(7,31):-5.6919:
+l-H2CCC:Propadienylidene:41.19832:2(1,2)-1(1,1):0.17:Lovas
+CH3CHOv=0:Acetaldehyde:41.21216:2(1,1)-1(1,1)E::JPL
+C6H&#150;:1,3,5-Hexatriynyl anion:41.30545:15-14:0.025:Lovas
+CH3C3N:2-Butynenitrile:41.314:10(1)-9(1):0.08:Lovas
+CH3C3N:2-Butynenitrile:41.31439:10(0)-9(0):0.09:Lovas
+CNCHO:Cyanoformaldehyde:41.34222:10(0,10)-9(1,9):0.013:Lovas
+H2CCNH:Ketenimine:41.52384:7(1,6)-8(0,8),F=7-8:  b:Lovas
+H2CCNH:Ketenimine:41.5244:7(1,6)-8(0,8),F=8-9:-0.59f:Lovas
+H2CCNH:Ketenimine:41.52448:7(1,6)-8(0,8),F=6-7:  b:Lovas
+HC7Nv=0:2,4,6-Heptatriynenitrile:41.73527:J=37-36:0.085:Lovas
+c-H2C3O:Cyclopropenone:42.03194:3(0,3)-2(0,2):-0.035:CDMS
+c-HCCCH :Cyclopropenylidene:42.13919:5(4,1)-5(3,2)::CDMS
+c-H2C3O:Cyclopropenone:42.31619:3(2,2)-2(2,1):-0.018:CDMS
+NH213CHO:Formamide:42.318178:2(0,2)-1(0,1)::SLAIM
+30SiOv=0:Silicon Monoxide:42.37334:1-0:28. e:Lovas
+NH2CHO:Formamide:42.386059:2(0,2)-1(0,1):0:SLAIM
+NH2CHO:Formamide:42.38606:2(0,2)-1(0,1)::SLAIM
+SiOv=3:Silicon Monoxide:42.51937:1-0:2:Lovas
+c-H2C3O:Cyclopropenone:42.60125:3(2,1)-2(2,0)::CDMS
+HC5Nv=0:Cyanobutadiyne:42.60215:J=16-15:0.4:Lovas
+HCS+:Thioformylium:42.67419:1-0:0.085:Lovas
+SO2v=0:Sulfur dioxide:42.68007:41(7,35)-40(8,32):-5.8126:
+HOCO+:Protonated Carbon Dioxide:42.76618:2(0,2)-1(0,1):0.2:Lovas
+SiOv=2:Silicon Monoxide:42.82057:1-0:15.i:Lovas
+NH3v=0:Ammonia:42.83992:17(17)0a-17(17)0s::
+HC7Nv=0:2,4,6-Heptatriynenitrile:42.86321:J=38-37:0.086:Lovas
+29SiOv=0:Silicon Monoxide:42.87994:1-0: 3.1e:Lovas
+C6H:1,3,5-Hexatriynyl:42.97043:J=31/2-29/2,&Omega;=3/2,l=e:0.108:Lovas
+SO2v=0:Sulfur dioxide:43.01628:19(2,18)-18(3,15):-5.2597:
+t-CH3CH2OH:trans-Ethanol:43.0266:1(1,1)-0(0,0)::SLAIM
+NH2CHO:Formamide:43.02811:7(1,6)-7(1,7)::SLAIM
+NH2D:Ammonia:43.04225:3(1,3)0a-3(0,3)0s:0:
+SiOv=1:Silicon Monoxide:43.12209:1-0:29.i:Lovas
+SO2v=0:Sulfur dioxide:43.17817:23(2,22)-22(3,19):-5.5018:
+C6H:1,3,5-Hexatriynyl:43.26244:J=31/2-29/2,&Omega;=1/2,l=e:0.028:Lovas
+NH2CHO:Formamide:43.28069:5(2,4)-6(1,5)::SLAIM
+HC3NH+:Protonate 2-proynenitrile:43.28981:J=5-4:0.048:Lovas
+t-HCOOH :Formic Acid:43.30371:2(1,2)-1(1,1)::CDMS
+SiOv=0:Silicon Monoxide:43.42385:1-0:0.5:Lovas
+CH3OCH3:Dimethyl ether:43.44647:6(1,5)-6(0,6)AE::SLAIM
+CH3OCH3:Dimethyl ether:43.44647:6(1,5)-6(0,6)EA::SLAIM
+CH3OCH3:Dimethyl ether:43.44757:6(1,5)-6(0,6)EE::SLAIM
+CH3OCH3:Dimethyl ether:43.44867:6(1,5)-6(0,6)AA::SLAIM
+CH3CH2CNv=0:Ethyl Cyanide:43.51619:5(1,5)-4(1,4): 1.2e:Lovas
+CH3OCHOv=0:Methyl Formate:43.52804:7(1,6)-7(1,7)E::JPL
+CH3OCHOv=0:Methyl Formate:43.55647:7(1,6)-7(1,7)A::JPL
+CH3OCHOv=0:Methyl Formate:43.82919:9(2,7)-9(1,8)E::JPL
+CH3OCHOv=0:Methyl Formate:43.85132:9(2,7)-9(1,8)A::JPL
+SiN:SiN:43.90151:N=1-0 J= 3/2 – ½, F = 5/2 – 3/2::CDMS
+NH2CHO:Formamide:43.95445:2(1,1)-1(1,0)::SLAIM
+NH2CHO:Formamide:43.954454:2(1,1)-1(1,0):0:SLAIM
+HNCOv=0:Isocyanic Acid:43.96201:2(0,2)-1(0,1),F=1-1:0.05:Lovas
+HNCOv=0:Isocyanic Acid:43.963:2(0,2)-1(0,1),F=3-2:<1b:Lovas
+HNCOv=0:Isocyanic Acid:43.96304:2(0,2)-1(0,1),F=2-1:  b:Lovas
+HNCOv=0:Isocyanic Acid:43.96366:2(0,2)-1(0,1),F=1-0,2-2:0.07:Lovas
+CCS:Thioxoethenylidene:43.98102:3,4-2,3:0.38:Lovas
+CH3OCHOv=0:Methyl Formate:43.99555:2(2,1)-2(1,2)E::JPL
+CH3OCHOv=0:Methyl Formate:44.04284:2(2,1)-2(1,2)A::JPL
+SO2v=0:Sulfur dioxide:44.05286:6(2,4)-7(1,7):-5.4028:
+CH3OHvt=0:Methanol:44.06948:7(0,7)-6(1,6)++:3.9:Lovas
+H13CCCNv=0:Cyanoacetylene:44.08417:J=5-4:0.066:Lovas
+c-HCCCHv=0:Cyclopropenylidene:44.10478:3(2,1)-3(1,2):0.025:Lovas
+HCCC15Nv=0:Cyanoacetylene:44.16727:5-4:0.08:Lovas
+CH3OCHOv=0:Methyl Formate:44.19848:2(2,0)-2(1,2)E::JPL
+CH3OCHOv=0:Methyl Formate:44.20282:8(2,6)-7(3,5)A::JPL
+CH3OCHOv=0:Methyl Formate:44.21079:8(2,6)-7(3,5)E::JPL
+l-C4H2:Butatrienylidene:44.47114:5(1,5)-4(1,4):0.018:Lovas
+CC34S:Thioxoethenylidene:44.4976:N=3-2,J=4-3::JPL
+UnidentifiedTransition:UNIDENTIFIED:44.5077:U-44507.7:0.06:Lovas
+c-H2C3O:Cyclopropenone:44.5874:3(1,2)-2(1,1):-0.06:Lovas
+c-H2C3O:Cyclopropenone:44.5874:3(1,2)-2(1,1):-0.06:CDMS
+CH3CH2CNv=0:Ethyl Cyanide:44.59699:5(0,5)-4(0,4):0.31:Lovas
+CH3CH2CNv=0:Ethyl Cyanide:44.73027:5(2,4)-4(2,3):0.23:Lovas
+CH3CH2CNv=0:Ethyl Cyanide:44.76891:5(4,2)-4(4,1):0:CDMS
+CH3CH2CNv=0:Ethyl Cyanide:44.77387:5(3,3)-4(3,2):0:CDMS
+CH3C4H:Methyl diacetylene:44.78554:11(1)-10(1):0.04:Lovas
+CH3C4H:Methyl diacetylene:44.78593:11(0)-10(0):0.05:Lovas
+CH3CH2CNv=0:Ethyl Cyanide:44.8781:5(2,3)-4(2,2):0.3:Lovas
+t-HCOOH:Formic Acid:44.91175:2(0,2)-1(0,1):0.044:Lovas
+CH3OHvt=1:Methanol:44.95578:2(0,2)-3(1,3):0.85:Lovas
+l-C3H+ :Propynylidynium:44.97954:(2-1)::CDMS
+CH3CHOv=0:Acetaldehyde:45.07824:2(1,2)-2(0,2)E::JPL
+c-H13CCCH:Cyclopropenylidene:45.10387:2(1,1)-2(0,2):0.09:Lovas
+NaCN/NaNC:Sodium Cyanide:45.25908:3(1,3)-2(1,2):0.02:Lovas
+NaCN/NaNC:Sodium Cyanide:45.25908:3(1,3)-2(1,2):208.85478:SLAIM
+HC5Nv=0:Cyanobutadiyne:45.26472:J=17-16:0.83:Lovas
+HC13CCNv=0:Cyanoacetylene:45.29735:J=5-4:0.22:Lovas
+HCC13CNv=0:Cyanoacetylene:45.30171:J=5-4:0.34:Lovas
+l-C5H:2,4-Pentadiynylidyne:45.35505:J=19/2-17/2,&Omega;=1/2,F=9-8,l=f:b:Lovas
+CCS:Thioxoethenylidene:45.37903:4,3-3,2:2.23:Lovas
+CH3OCHOv=0:Methyl Formate:45.39579:4(1,4)-3(1,3)E::JPL
+CH3OCHOv=0:Methyl Formate:45.39738:4(1,4)-3(1,3)A::JPL
+HC3Nv=0:Cyanoacetylene:45.490314:J=5-4:  b:Lovas
+g'Ga-(CH2OH)2:Ethylene Glycol:45.54764:4(1,4)v=1-3(1,3)v=0:-5.6054:CDMS
+HC3Nv6=1:Cyanoacetylene:45.56496:J=5-4,l=1e: 1.1f:Lovas
+HC3Nv6=1:Cyanoacetylene:45.60079:J=5-4,l=1f:  b:Lovas
+HC3Nv7=1:Cyanoacetylene:45.60217:J=5-4,l=1e: 7.1bf:Lovas
+HC3Nv7=1:Cyanoacetylene:45.66755:J=5-4,l=1f: 5.7f:Lovas
+HC3Nv6=1,v7=1:Cyanoacetylene:45.72713:J=5-4,l=0+:  b:Lovas
+HC3Nv6=1,v7=1:Cyanoacetylene:45.72749:J=5-4,l=0-:  b:Lovas
+HC3Nv6=1,v7=1:Cyanoacetylene:45.7294:J=5-4,l=2-:  b:Lovas
+HC3Nv6=1,v7=1:Cyanoacetylene:45.72948:J=5-4,l=2+: 4.7bf:Lovas
+CH3OCHOv=0:Methyl Formate:45.75404:3(1,3)-2(0,2)E::JPL
+CH3OCHOv=0:Methyl Formate:45.7587:3(1,3)-2(0,2)A::JPL
+HC3Nv7=2:Cyanoacetylene:45.77889:J=5-4,l=2e:  b:Lovas
+HC3Nv7=2:Cyanoacetylene:45.77907:J=5-4,l=0: 4.5bf:Lovas
+HC3Nv7=2:Cyanoacetylene:45.7792:J=5-4,l=2f:  b:Lovas
+HSCN a-type:thiocyanic Acid:45.87781:4(0,4)-3(0,3)::CDMS
+CH3CHOv=0:Acetaldehyde:45.89733:1(1,1)-1(0,1)E::JPL
+CH3CH2CNv=0:Ethyl Cyanide:45.909512:5(1,4)-4(1,3)::CDMS
+CH3OCHOv=0:Methyl Formate:45.98933:7(1,6)-7(0,7)E::JPL
+CH3OCHOv=0:Methyl Formate:46.01708:7(1,6)-7(0,7)A::JPL
+C6H:1,3,5-Hexatriynyl:46.05411:J=33/2-31/2,&Omega;=1/2,l=f:0.029:Lovas
+NH3v=0:Ammonia:46.1227:18(18)0a-18(-18)0s::
+NH3v=0:Ammonia:46.1233:18(18)0a-18(18)0s:0.8:Lovas
+13CSv=0:Carbon Monosulfide:46.24756:1-0:0.148:Lovas
+CH2CHCNv=0:Vinyl Cyanide:46.26693:5(1,5)-4(1,4):0.1:Lovas
+CH3OCHOv=0:Methyl Formate:46.51729:3(2,2)-3(1,3)E::JPL
+CH3OCHOv=0:Methyl Formate:46.54221:3(2,2)-3(1,3)A::JPL
+CH3OCHOv=0:Methyl Formate:46.55414:11(4,8)-12(2,11)A::JPL
+CH3OCHOv=0:Methyl Formate:46.57983:6(1,5)-5(2,4)E::JPL
+CH3OCHOv=0:Methyl Formate:46.58028:6(1,5)-5(2,4)A::JPL
+t-HCOOH:Formic Acid:46.58123:2(1,1)-1(1,0)::CDMS
+c-HCCCH :Cyclopropenylidene:46.64505:5(5,0)-5(4,1)::CDMS
+HNCCC:3-Imino-1,2 Propadienylidene:46.68309:5-4:0.3:Lovas
+c-HCCCHv=0:Cyclopropenylidene:46.75561:2(1,1)-2(0,2):1:Lovas
+t-CH3CH2OH:trans-Ethanol:46.8328:4(0,4)-3(1,3)::SLAIM
+NaCN/NaNC:Sodium Cyanide:46.84773:3(0,3)-2(0,2):0.02:Lovas
+NaCN/NaNC:Sodium Cyanide:46.84773:3(0,3)-2(0,2):234.91267:SLAIM
+NaCN/NaNC:Sodium Cyanide:46.90065:3(2,2)-2(2,1):130.54011:SLAIM
+NaCN/NaNC:Sodium Cyanide:46.97234:3(2,1)-2(2,0):130.54011:SLAIM
+PN:Phosphorous Nitride:46.989017:N = 1-0, J=1-1::CDMS
+PN:Phosphorous Nitride:46.990544:N = 1-0, J=2-1::CDMS
+HCNv2=1:Hydrogen Cyanide:47.02317:J=14-14,l=1f:0.11:Lovas
+SiC2v=0:Silicon Carbide:47.06481:2(0,2)-1(0,1):0.233:Lovas
+E-CH3CHNH:Ethanimine:47.176006:3(1,2)-3(0,3) E::
+CH3CH2CHO:Propanol:47.1951:4(1,4)-3(0,3)::
+13CH3OH:Methanol:47.20521:1(0,1)-0(0,0)++::CDMS
+13CH3OH:Methanol:47.20955:1(0,1)-0(0,0)::CDMS
+g'Ga-(CH2OH)2:Ethylene Glycol:47.21741:4(0,4)v=1-3(0,3)v=0:-5.439:CDMS
+E-CH3CHNH:Ethanimine:47.249906:3(1,2)-3(0,3) A::
+CH2CHCNv=0:Vinyl Cyanide:47.35465:5(0,5)-4(0,4):0.18:Lovas
+CH3CONH2:Acetamide:47.37332:4(2,3)-3(3,1)E:0.002:Lovas
+HC7Nv=0:2,4,6-Heptatriynenitrile:47.37491:J=42-41:0.078:Lovas
+CH2CHCNv=0:Vinyl Cyanide:47.41979:5(2,4)-4(2,3)::JPL
+HC13CCCCN:Cyanobutadiyne:47.43613:18-17:0.022:Lovas
+CH2CHCNv=0:Vinyl Cyanide:47.44353:5(3,3)-4(3,2)::JPL
+CH2CHCNv=0:Vinyl Cyanide:47.48923:5(2,3)-4(2,2)::JPL
+CH3OCHOv=0:Methyl Formate:47.53407:4(0,4)-3(0,3)E:0.25:Lovas
+CH3OCHOv=0:Methyl Formate:47.53409:4(0,4)-3(0,3)E::JPL
+CH3OCHOv=0:Methyl Formate:47.53692:4(0,4)-3(0,3)A::JPL
+CH3OCHOv=0:Methyl Formate:47.53694:4(0,4)-3(0,3)A:0.23:Lovas
+c-H2COCH2:Ethylene Oxide:47.55693:5(5,0)-5(4,1):0.12:Lovas
+C4Hv=0:1,3-Butadiynyl radical:47.5668:N=5-4,J=11/2-9/2:0.1:Lovas
+C4Hv=0:1,3-Butadiynyl radical:47.59599:N=5-4,J=9/2-9/2,F=4-4:0.06:Lovas
+C4Hv=0:1,3-Butadiynyl radical:47.60549:N=5-4,J=9/2-7/2:0.09:Lovas
+CH3CHOv=0:Acetaldehyde:47.60581:9(1,8)-9(1,9)E::JPL
+HC9N:2,4,6,8-Nonatetraynenitrile:47.64311:82-81:0.02:Lovas
+SO2v=0:Sulfur dioxide:47.66062:31(5,27)-30(6,24):0.08:Lovas
+CH3OCH3:Dimethyl ether:47.67404:1(1,1)-0(0,0)EA::SLAIM
+CH3OCH3:Dimethyl ether:47.67406:1(1,1)-0(0,0)AE::SLAIM
+CH3OCH3:Dimethyl ether:47.67496:1(1,1)-0(0,0)EE:0.09:Lovas
+CH3OCH3:Dimethyl ether:47.67496:1(1,1)-0(0,0)EE:0.09:SLAIM
+CH3OCH3:Dimethyl ether:47.67587:1(1,1)-0(0,0)AA::SLAIM
+MgNCv=0:Magnesium Isocyanide:47.72648:N=4-3,J=7/2-5/2:0.03:Lovas
+CH3CHOv=0:Acetaldehyde:47.73114:9(1,8)-9(1,9)A::JPL
+CH3CHOv=0:Acetaldehyde:47.74697:1(1,0)-1(0,1)E::JPL
+CH3CHOv=0:Acetaldehyde:47.74698:1(1,0)-1(0,1)E:0.06:Lovas
+CH3OCH3:Dimethyl ether:47.79359:9(1,9)-8(2,6)AA::SLAIM
+CH3OCH3:Dimethyl ether:47.7963:9(1,9)-8(2,6)EE::SLAIM
+CH3OCH3:Dimethyl ether:47.79899:9(1,9)-8(2,6)EA::SLAIM
+CH3OCH3:Dimethyl ether:47.799:9(1,9)-8(2,6)AE::SLAIM
+CH3CHOv=0:Acetaldehyde:47.820668:1(1,0)-1(0,1)A:0.06:JPL
+HNCHCN:cyanomethanimine:47.824964:5(0,5)-4(0,4)::
+SO2v=0:Sulfur dioxide:47.91343:14(2,12)-13(3,11):1.15:Lovas
+HC5Nv=0:Cyanobutadiyne:47.92728:J=18-17:1.5:Lovas
+SO2v=0:Sulfur dioxide:48.12044:21(2,20)-20(3,17):0.39:Lovas
+CH3OHvt=2:Methanol:48.17833:1(0,1)-0(0,0)Evt=2:0.03:Lovas
+CH3OHvt=2:Methanol:48.19212:1(0,1)-0(0,0)A+vt=2:0.06:Lovas
+C34Sv=0:Carbon Monosulfide:48.20694:1-0:0.38:Lovas
+CH3OHvt=1:Methanol:48.24757:1(0,1)-0(0,0):0.23:Lovas
+CH3OHvt=1:Methanol:48.2573:1(0,1)-0(0,0)++:0.09:Lovas
+H2CO:Formaldehyde:48.28452:4(1,3)-4(1,4):0.63:Lovas
+CH3OHvt=0:Methanol:48.37246:1(0,1)-0(0,0)++:0.44:Lovas
+CH3OHvt=0:Methanol:48.37689:1(0,1)-0(0,0):0.29:Lovas
+C6H?:1,3,5-Hexatriynyl:48.52304:J=35/2-33/2,&Omega;=3/2,l=d:0.066:Lovas
+NaCN/NaNC:Sodium Cyanide:48.54822:3(1,2)-2(1,1):0.025:Lovas
+NaCN/NaNC:Sodium Cyanide:48.54822:3(1,2)-2(1,1):208.85478:SLAIM
+CH2CHCNv=0:Vinyl Cyanide:48.55256:5(1,4)-4(1,3):0.07:Lovas
+C33Sv=0:Carbon Monosulfide  :48.58329:J=1-0,F=1/2-3/2:  b:Lovas
+C33Sv=0:Carbon Monosulfide  :48.58592:J=1-0,F=5/2-3/2:<0.12b:Lovas
+C33Sv=0:Carbon Monosulfide  :48.58907:J=1-0,F=3/2-3/2:  b:Lovas
+UnidentifiedTransition:UNIDENTIFIED:48.5934:U-48593.4:0.027:Lovas
+UnidentifiedTransition:UNIDENTIFIED:48.6022:U-48602.2:0.023:Lovas
+CH3CHOv=0:Acetaldehyde:48.60347:2(1,1)-2(0,2)E::JPL
+OCSv=0:Carbonyl Sulfide:48.6516:4-3:0.45:Lovas
+CH3OCHOv=0:Methyl Formate:48.76702:4(2,3)-3(2,2)A::JPL
+CH3OCHOv=0:Methyl Formate:48.7683:4(2,3)-3(2,2)E::JPL
+NH2CHO:Formamide:48.81087:7(2,5)-8(1,8)::SLAIM
+CH3OCH3:Dimethyl ether:48.90027:7(1,6)-7(0,7)AE::SLAIM
+CH3OCH3:Dimethyl ether:48.90027:7(1,6)-7(0,7)EA::SLAIM
+CH3OCH3:Dimethyl ether:48.90145:7(1,6)-7(0,7)EE::SLAIM
+CH3OCH3:Dimethyl ether:48.90262:7(1,6)-7(0,7)AA::SLAIM
+CH3CHOv=0:Acetaldehyde:48.90283:2(1,1)-2(0,2)A::JPL
+CH3OCHOv=0:Methyl Formate:48.93587:4(3,2)-3(3,0)E::JPL
+CSv=0:Carbon Monosulfide:48.99095:1-0:3.53:Lovas
+CH3OCHOv=0:Methyl Formate:49.13463:4(3,2)-3(3,1)A::JPL
+CH3OCHOv=0:Methyl Formate:49.15162:4(3,2)-3(3,1)E::JPL
+CH3OCHOv=0:Methyl Formate:49.15529:4(3,1)-3(3,0)E::JPL
+CH3OCHOv=0:Methyl Formate:49.1801:4(3,1)-3(3,0)A::JPL
+CH3OCHOv=0:Methyl Formate:49.37104:4(3,1)-3(3,1)E::JPL
+CH3OCH3:Dimethyl ether:49.46111:4(0,4)-3(1,3)AA::SLAIM
+CH3OCH3:Dimethyl ether:49.46185:4(0,4)-3(1,3)EE::SLAIM
+CH3OCH3:Dimethyl ether:49.46259:4(0,4)-3(1,3)AE::SLAIM
+CH3OCH3:Dimethyl ether:49.4626:4(0,4)-3(1,3)EA::SLAIM
+CCCNv=0:Cyanoethynyl:49.46641:N=5-4,J=11/2-9/2,F=11/2-9/2:  b:Lovas
+CCCNv=0:Cyanoethynyl:49.46641:N=5-4,J=11/2-9/2,F=9/2-7/2:  b:Lovas
+CCCNv=0:Cyanoethynyl:49.46646:N=5-4,J=11/2-9/2,F=13/2-11/2: 0.19b:Lovas
+CCCNv=0:Cyanoethynyl:49.4852:N=5-4,J=9/2-7/2,F=7/2-5/2:  b:Lovas
+CCCNv=0:Cyanoethynyl:49.48525:N=5-4,J=9/2-7/2,F=11/2-9/2: 0.18b:Lovas
+CCCNv=0:Cyanoethynyl:49.48525:N=5-4,J=9/2-7/2,F=9/2-7/2:  b:Lovas
+UnidentifiedTransition:UNIDENTIFIED:49.53587:U-49535.87:0.07:Lovas
+HC7Nv=0:2,4,6-Heptatriynenitrile:49.63073:J=44-43:0.082:Lovas
+UnidentifiedTransition:UNIDENTIFIED:49.64386:U-49643.86:0.06:Lovas
+NH3v=0:Ammonia:49.83964:19(19)0a-19(19)0s::JPL
+C8H:1,3,5,7-Octatetraynyl:49.86523:J=85/2-83/2,&Omega;=3/2,l=e: 0.29f:Lovas
+C8H:1,3,5,7-Octatetraynyl:49.8662:J=85/2-83/2,&Omega;=3/2,l=f:  b:Lovas
+CH3OCHOv=0:Methyl Formate:49.88969:4(2,3)-4(1,4)E::JPL
+CH3OCHOv=0:Methyl Formate:49.91181:4(2,3)-4(1,4)A::JPL
+UnidentifiedTransition:UNIDENTIFIED:49.95811:U-49958.11:0.1:Lovas
+NH2D:Ammonia:49.96284:2(1,2)0s-2(0,2)0a:0:
+CH2CHCNv=0:Vinyl Cyanide:50.09991:6(1,5)-6(0,6) ::JPL
+CH3CHOv=0:Acetaldehyde:50.1754088:3(1,2)-3(0,3)E:-5.8413:JPL
