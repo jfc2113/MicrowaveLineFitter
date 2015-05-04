@@ -4,10 +4,15 @@ The scripts have been tested in IPYTHON version 0.12.1 with PYTHON 2.7.3, NUMPY 
 PYTHON 2.7.3 includes the MATH and CSV modules that are used in the scripts.  A full description of the code follows below.  
 
 First, here is the short version:  
+
 1. Edit the parameters at the top of FullCode.py and throughout VelocityEditFile.py based on your source kinematics and data range.
+
 2. Run the code in ipython with: 
+
 2.1 '%run FullCode.py'
+
 2.2 'cd VEL'
+
 2.3 '%run VelocityFileMaker.py
 
 Now, here comes the full description:
