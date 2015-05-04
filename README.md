@@ -54,7 +54,11 @@ FullCode plots the full data spectrum with the line fits overlaid, marking the l
 
 4. possible atomic or molecular carriers of the detected Gaussian features.  The output file lists any transitions from the input 'recombLines.csv' and 'molecularLines.csv' files that are within a specified velocity range of the detected features.  
 
-Upon inspection of the results and manual updates to any bad fits, run VelocityFileMaker to generate a final output csv file containing line identifications and Gaussian fit parameters, with parameters listed in velocity space. Before running VelocityFileMaker, edit parameters in 'VelocityEditFile.py', imported to VelocityFileMaker as 'VE'.  Specify the names of the positions from which you extracted spectra, csv file input names, and velocity ranges that are appropriate for different types of lines, including recombination lines, molecular lines from the primary source, and additional lines observed in absorption by foreground diffuse or translucent clouds.  The latter is only relevant in some lines-of-sight.
+Upon inspection of the results and manual updates to any bad fits, run VelocityFileMaker to generate a final output csv file containing line identifications and Gaussian fit parameters, with parameters listed in velocity space.   VelocityFileMaker generates an output csv file entitled "velocity_ALL_(r).csv".  The file 
+contains line rest frequencies, species, transitions, Gaussian fit velocities, heights, widths (in velocity units), 
+center frequencies, and "LineTypes".
+
+Before running VelocityFileMaker, edit parameters in 'VelocityEditFile.py', imported to VelocityFileMaker as 'VE'.  Specify the names of the positions from which you extracted spectra, csv file input names, and velocity ranges that are appropriate for different types of lines, including recombination lines, molecular lines from the primary source, and additional lines observed in absorption by foreground diffuse or translucent clouds.  The latter is only relevant in some lines-of-sight.
 
 The code implements primarily kinematics-based consistency checks for line identifications, and can use three optional input csv files to prioritize line identifications. In order to minimize mis-identification, the final line-identification process operates on a priority system as follows:
 
@@ -66,14 +70,14 @@ Features that are inconsistent with recombination lines include absorption lines
  velocity range set in the function VE.strongVrange (in VelocityEditFile) are output as firmly identified, and assigned "LineType = strong".  Verify that the first two columns of 
  your 'strongLines.csv' file are formatted the same as the file included in the package, which is different than the 'molecularLines.csv' file.
 
-3. Priority 3: The user can use a file entitled 'SAClines.csv', which indicates which transitions that may be observed in foreground absorption by diffuse and translucent cloud material, often referred to as Spiral Arm Clouds (abbreviated SAC). The foreground absorption components are at velocities that are inconsistent with the targeted cloud, and must be constrained in VelocityEditFile.  Lines that fall within the velocity range set in the function vEDIT.SACvRange are output as firmly identified, and assigned the "LineType = SAC".  Verify that the first two columns of your 'SAClines.csv' file are formatted the same as the file included in the package.
+3. Priority 3: The user can use a file entitled 'SAClines.csv', which indicates which transitions that may be observed in foreground absorption by diffuse and translucent cloud material, often referred to as Spiral Arm Clouds (abbreviated SAC). The foreground absorption components are at velocities that are inconsistent with the targeted cloud, and must be constrained in VelocityEditFile.  Lines that fall within the velocity range set in the function vEDIT.SACvRange are output as firmly identified, and assigned "LineType = SAC".  Verify that the first two columns of your 'SAClines.csv' file are formatted the same as the file included in the package.
 
 4. Priority 4: The code then assigns remaining lines tentatively assigned in ALLFITS_(r).  In cases where multiple transitions are near the Gaussian center frequency, the line with the best kinematic match to the velocity, as specified in VelocityEditFile, is output.  While this typically works well 
 at centimeter wavelengths, we recommend inspecting lines that have multiple line entries in ALLFITS_(r), especially at higher frequency.  
 If the code gets the "wrong" answer at this point, mark the line as blended, and either change the line assignment in velocity_ALL_(r) 
 or only keep the preferred line in ALLFITS_(r).
 
-5. Priority 5: Finally, the code outputs all fits that were not firmly identified in Priorities 1-4.  These are given a "LineType = Unidentified".  If a fit was associated with a known transition in ALLFITS_(r), the transition parameters will be output so that the user can decide whether or not to adopt the transition as identified.
+5. Priority 5: Finally, the code outputs all fits that were not firmly identified in Priorities 1-4.  These are given "LineType = Unidentified".  If a fit was associated with a known transition in ALLFITS_(r), the transition parameters will be output so that the user can decide whether or not to adopt the transition as identified.
 
 The code does not handle line blending with much sophistication, however the prioritization system significantly improves the likelihood that most of the line radiation can be ascribed to the identified carrier transition.
 
@@ -82,8 +86,5 @@ Within each priority, the VelocityFileMaker also handles wing components.  Some 
          1. H_{Feature}/H_{Primary} < 0.22 and v_{Feature} - v_{Primary} < deltaV_{Primary}
          2. H_{Feature}/H_{Primary} < 0.05 and v_{Feature} - v_{Primary} < 1.5 * deltaV_{Primary}
          
-for the line heights, velocity centers, and FWHM widths (H, v, and deltaV) of the possible wing component (Feature) and the primary component (Primary).  These are assigned a "LineType = wing". Within each priority, VelocityFileMaker identifies the primary components, which must be consistent with the kinematic information input, and then selects any wings associated with these lines.  As such, the recombination lines and wings of recombination lines are identified, followed by designated "strong lines" and the wings of strong lines, etc.  
+for the line heights, velocity centers, and FWHM widths (H, v, and deltaV) of the possible wing component (Feature) and the primary component (Primary).  These are assigned "LineType = wing". Within each priority, VelocityFileMaker identifies the primary components, which must be consistent with the kinematic information input, and then selects any wings associated with these lines.  As such, the recombination lines and wings of recombination lines are identified, followed by designated "strong lines" and the wings of strong lines, etc.  
 
-VelocityFileMaker generates an output csv file entitled "velocity_ALL_(r).csv".  The file 
-contains line rest frequencies, species, transitions, Gaussian fit velocities, heights, widths (in velocity units), 
-center frequencies, and LineTypes.
