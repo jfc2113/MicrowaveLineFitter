@@ -9,16 +9,16 @@ First, here is the short version:
 
 2. Run the code in ipython with: 
 
-         2.1 '%run FullCode.py'
+         %run FullCode.py
 
-         2.2 'cd VEL'
+         cd VEL
 
-         2.3 '%run VelocityFileMaker.py
+         %run VelocityFileMaker.p'
 
 Now, here comes the full description:
-The MicrowaveLineFitter includes eight scripts and three spectra characterized in this work, and csv files holding line data.  
-Two of the scripts are run directly, namely  `FullCode.py' is run before `VelocityFileMaker.py'.
-After optional adjustments by the user, `VelocityFileMaker.py' uses the output of `FullCode.py' to generate a final csv file that contains 
+
+The MicrowaveLineFitter repository includes eight scripts, three spectra towards positions in Sgr B2, and csv files holding line data.  Two of the scripts are run directly, namely  'FullCode.py' is run before 'VelocityFileMaker.py'.
+After optional adjustments by the user, 'VelocityFileMaker.py' uses the output of 'FullCode.py' to generate a final csv file that contains 
 Gaussian fits to the full spectrum and line identifications.  Of the remaining six scripts, five contain modules called in `FullCode.py'.  The modules 
 and their primary purposes include:\begin{itemize}
          \item `LineFind.py' grabs segments of the spectrum that contain lines, detecting ``line-channels'' with single-channel intensity values greater 
