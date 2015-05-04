@@ -41,45 +41,34 @@ The file 'K6\_fullSpec.txt', provided with the scripts, is in the correct format
 The code outputs csv file data with this format as well.
 
 FullCode plots the full data spectrum with the line fits overlaid and can output a csv file containing Gaussian line fits and line identifications.  This output file is named 
-ALLFITS\_(r).csv, where (r) is the name of the source or region targeted.  It contains:
+ALLFITS_(r).csv, where (r) is the name of the source or region targeted.  It contains:
 1. Gaussian line fit parameters (height, center frequency, and width in frequency units) of all features.
+
 2. two measures of the quality of the fit.  First, the rms residual between the data and the fit; second,  for 1-component fits, the file provides the offset between the frequency at which the data has its maximum absolute value and the Gaussian center frequency. Fits with abnormally large values may be suspect. 
+
 3. the `bin' indicates how the line was handled in Gfit.GauFit. Lines with bin = 0 are 1-component fits that were deemed appropriate.  Lines with bin = 1 are 2-component fits that were found to be reasonable.  For lines with bin = 2, the data significantly differed from the best 1-component fit obtained, however Gfit.GauFit was unable to obtain a reasonable 2-component fit and therefore used the best 1-component fit obtained.  These should be inspected and possibly re-fit manually.  For bin = 3 lines, the residual between the data and the fit is significantly larger than the noise level of the spectrum.  These should be inspected and possibly re-fit manually.  Bin = 5 lines are entirely unreasonable, with very broad line widths or unreasonable line heights.  They are used as placeholders to enable the code to proceed, and they will need to be re-fit.  Of 617 components used to fit the spectrum towards K6, 360 have bin = 0, 242 have bin = 1, 1 has bin = 2, 12 have bin = 3, and 2 have bin = 5.
+
 4. possible atomic or molecular carriers of the detected Gaussian features.  The output file lists any transitions from the input recombLines.csv and molecularLines.csv files that are within a specified velocity range of the detected features.  These can be prioritized before running VelocityFileMaker.py to obtain the final line results.
 
-Upon inspection of the results and manual updates to any bad fits, run VelocityFileMaker to generate a final output csv file containing line identifications and Gaussian fit parameters,
-with parameters listed in velocity space. Before running VelocityFileMaker, edit parameters in ``velEDIT.py''.  Specify the names of the positions from which you extracted 
-spectra, csv file input names, and velocity ranges that are appropriate for different types of lines, including recombination lines, molecular lines from the primary source, 
-and additional lines observed in absorption by foreground diffuse or translucent clouds.  The latter is only relevant in some lines-of-sight.
+Upon inspection of the results and manual updates to any bad fits, run VelocityFileMaker to generate a final output csv file containing line identifications and Gaussian fit parameters, with parameters listed in velocity space. Before running VelocityFileMaker, edit parameters in "VelocityEditFile.py", imported to VelocityFileMaker as 'VE'.  Specify the names of the positions from which you extracted spectra, csv file input names, and velocity ranges that are appropriate for different types of lines, including recombination lines, molecular lines from the primary source, and additional lines observed in absorption by foreground diffuse or translucent clouds.  The latter is only relevant in some lines-of-sight.
 
-The code implements primarily kinematics-based consistency checks for line identifications, and can use up to 2 optional 
-input csv files to prioritize line identifications. In order to minimize mis-identification, the final line-identification process 
-operates on a priority system as follows:
-\begin{itemize}
- \item  Priority 1: The code first inspects identified recombination lines for kinematic consistency and consistent line-intensities.  
- This step requires a sufficiently large number of recombination lines to work well (\textgreater10 high signal-to-noise lines or \textgreater20 lines recommended), 
- as it derives the mean Gaussian fit parameters and standard deviations in order to evaluate consistency.
-Lines that are self-consistent with the mean and standard deviations are output as firm line identifications, and assigned a Line Type of either ``H Recomb'' or ``He Recomb''.
-The script is not presently equipped to handle carbon recombination lines, but could be easily adjusted to do so.
-Features that are inconsistent with recombination lines include absorption lines, features that are significantly more broad or narrow than the mean, features 
-that are too far from the mean center frequency,
-or lines that are significantly too strong or weak (e.g. an H$\,\gamma$ line is as strong as most H$\,\alpha$ lines).  These may be output as tentative line identifications,
-which the user should inspect for line blending or data issues.  If you do not have recombination lines, the code will simply move to Priority 2.  
- \item  Priority 2: The user has the option of specifying a file entitled ``strongLines.csv''. (Of course, the file name can be changed per the users preference).  
- The file ``strongLines.csv'' contains the strongest lines, which can be firmly identified prior to identifying weaker molecular lines.  Lines that fall within the 
- velocity range set in the function vEDIT.strongVrange are output as firmly identified, and assigned the Line Type ``strong''.  Verify that the first two columns of 
- your ``strongLines.csv'' file are formatted the same as the file included in the package.
- \item  Priority 3: The user can use a file entitled ``SAClines.csv'', which indicates which transitions that may be observed in foreground absorption by 
- diffuse and translucent cloud material, often referred to as Spiral Arm Clouds (abbreviated SAC). The foreground absorption components are at velocities that
- are inconsistent with the targeted cloud, and must be constrained in VelocityEditFile.  Lines that fall within the 
- velocity range set in the function vEDIT.SACvRange are output as firmly identified, and assigned the Line Type ``SAC''.  Verify that the first two columns of 
- your ``SAClines.csv'' file are formatted the same as the file included in the package.
- \item  Priority 4: The code then assigns remaining lines tentatively assigned in ALLFITS\_(r).csv.  In cases where multiple transitions are near the Gaussian center frequency, 
- the line with the best kinematic match to the velocity, as specified in VelocityEditFile, is output.  While this typically works well
- at centimeter wavelengths, we recommend inspecting lines that have multiple line entries in ALLFITS\_(r).py, especially at higher frequency.  
- If the code gets the ``wrong'' answer at this point, mark the line as blended, and consider only keeping the preferred line in ALLFITS\_(r).py
+The code implements primarily kinematics-based consistency checks for line identifications, and can use up to 2 optional input csv files to prioritize line identifications. In order to minimize mis-identification, the final line-identification process operates on a priority system as follows:
+
+1. Priority 1: The code first inspects identified recombination lines for kinematic consistency and consistent line-intensities.  This step requires a sufficiently large number of recombination lines to work well (>10 high signal-to-noise lines or >20 total lines recommended), as it derives the mean Gaussian fit parameters and standard deviations in order to evaluate consistency.  Lines that are self-consistent with the mean and standard deviations are output as firm line identifications, and assigned a Line Type of either "H Recomb" or "He Recomb".
+The script is not presently equipped to handle carbon recombination lines, but could be adjusted to do so.
+Features that are inconsistent with recombination lines include absorption lines, features that are significantly more broad or narrow than the mean, features that are too far from the mean center frequency,or lines that are significantly too strong or weak (e.g. an H-gamma line is as strong as most H-alpha lines).  These may be output as tentative line identifications, which the user should inspect for line blending or data issues.  If you do not have recombination lines, the code will simply move to Priority 2.  
+
+2. Priority 2: The user has the option of specifying a file entitled "strongLines.csv". (Of course, the file name can be changed per the users preference).  The file "strongLines.csv" contains the strongest lines, which can be firmly identified prior to identifying weaker molecular lines.  Lines that fall within the 
+ velocity range set in the function VE.strongVrange (in VelocityEditFile) are output as firmly identified, and assigned the Line Type "strong".  Verify that the first two columns of 
+ your "strongLines.csv" file are formatted the same as the file included in the package, which is different than the "molecularLines.csv" file.
+
+3. Priority 3: The user can use a file entitled "SAClines.csv", which indicates which transitions that may be observed in foreground absorption by diffuse and translucent cloud material, often referred to as Spiral Arm Clouds (abbreviated SAC). The foreground absorption components are at velocities that are inconsistent with the targeted cloud, and must be constrained in VelocityEditFile.  Lines that fall within the velocity range set in the function vEDIT.SACvRange are output as firmly identified, and assigned the Line Type "SAC".  Verify that the first two columns of your "SAClines.csv" file are formatted the same as the file included in the package.
+
+4. Priority 4: The code then assigns remaining lines tentatively assigned in ALLFITS_(r).csv.  In cases where multiple transitions are near the Gaussian center frequency, the line with the best kinematic match to the velocity, as specified in VelocityEditFile, is output.  While this typically works well 
+at centimeter wavelengths, we recommend inspecting lines that have multiple line entries in ALLFITS_(r).py, especially at higher frequency.  
+ If the code gets the ``wrong'' answer at this point, mark the line as blended, and consider only keeping the preferred line in ALLFITS_(r).py
  \item  Priority 5: Finally, the code outputs all fits that were not firmly identified in Priorities 1-4.  These are given a Line Type of ``Unidentified''.  
- If a fit was associated with a known transition in ALLFITS\_(r).csv, the transition parameters will be output so that the user can decide whether or not to 
+ If a fit was associated with a known transition in ALLFITS_(r).csv, the transition parameters will be output so that the user can decide whether or not to 
  adopt the transition as identified.
 \end{itemize}
 The code does not handle line blending with much sophistication, however the prioritization system significantly improves the likelihood that most of the line
