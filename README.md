@@ -73,9 +73,8 @@ Features that are inconsistent with recombination lines include absorption lines
 3. Priority 3: The user can use a file entitled 'SAClines.csv', which indicates transitions that may be observed in foreground absorption by diffuse and translucent cloud material, often referred to as Spiral Arm Clouds (abbreviated SAC). The foreground absorption components are at velocities that are inconsistent with the targeted cloud, and must be constrained in VelocityEditFile.  Lines that fall within the velocity range set in the function vEDIT.SACvRange are output as firmly identified, and assigned "LineType = SAC".  Verify that the first two columns of your 'SAClines.csv' file are formatted the same as the file included in the package.
 
 4. Priority 4: The code then assigns remaining lines tentatively assigned in ALLFITS_(r).  In cases where multiple transitions are near the Gaussian center frequency, the line with the best kinematic match to the velocity, as specified in VelocityEditFile, is output.  While this typically works well 
-at centimeter wavelengths, we recommend inspecting lines that have multiple line entries in ALLFITS_(r), especially at higher frequency.  
-If the code gets the "wrong" answer at this point, mark the line as blended, and either change the line assignment in velocity_ALL_(r) 
-or only keep the preferred line in ALLFITS_(r).
+at centimeter wavelengths, we recommend inspecting lines that have multiple line entries in ALLFITS_(r), 
+especially at higher frequency.  If the code gets the "wrong" answer at this point, mark the line as blended, and either change the line assignment in velocity_ALL_(r) or only keep the preferred line in ALLFITS_(r).
 
 5. Priority 5: Finally, the code outputs all fits that were not firmly identified in Priorities 1-4.  These are given "LineType = Unidentified".  If a fit was associated with a known transition in ALLFITS_(r), the transition parameters will be output so that the user can decide whether or not to adopt the transition as identified.
 
