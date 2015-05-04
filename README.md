@@ -9,11 +9,11 @@ First, here is the short version:
 
 2. Run the code in ipython with: 
 
-2.1 '%run FullCode.py'
+         2.1 '%run FullCode.py'
 
-2.2 'cd VEL'
+         2.2 'cd VEL'
 
-2.3 '%run VelocityFileMaker.py
+         2.3 '%run VelocityFileMaker.py
 
 Now, here comes the full description:
 The MicrowaveLineFitter includes eight scripts and three spectra characterized in this work, and csv files holding line data.  
