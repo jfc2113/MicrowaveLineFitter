@@ -68,7 +68,7 @@ Features that are inconsistent with recombination lines include absorption lines
 
 2. Priority 2: The user has the option of specifying a file entitled 'strongLines.csv'. (Of course, the file name can be changed per the users preference).  The file 'strongLines.csv' contains the strongest lines, which can be firmly identified prior to identifying weaker molecular lines.  Lines that fall within the 
  velocity range set in the function VE.strongVrange (in VelocityEditFile) are output as firmly identified, and assigned "LineType = strong".  Verify that the first two columns of 
- your 'strongLines.csv' file are formatted the same as the file included in the package, which is different than the 'molecularLines.csv' file.
+ your 'strongLines.csv' file are formatted the same as the file included in the package; the formatting is different from that of the 'molecularLines.csv' file.
 
 3. Priority 3: The user can use a file entitled 'SAClines.csv', which indicates which transitions that may be observed in foreground absorption by diffuse and translucent cloud material, often referred to as Spiral Arm Clouds (abbreviated SAC). The foreground absorption components are at velocities that are inconsistent with the targeted cloud, and must be constrained in VelocityEditFile.  Lines that fall within the velocity range set in the function vEDIT.SACvRange are output as firmly identified, and assigned "LineType = SAC".  Verify that the first two columns of your 'SAClines.csv' file are formatted the same as the file included in the package.
 
