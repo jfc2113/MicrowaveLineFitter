@@ -45,7 +45,7 @@ compFileUnits = 'GHz'			#The frequencies in recomb.csv & molecularLines.csv are 
 ### The data input is defined here.
 ### The spectrum should be an ascii file with a frequency column and an intensity column.  The frequency column should be in MHz.  
 def InSpec(r):
-	return LF.spect('%s_fullSpec.txt' %(r),units='MHz')  	#Grabs a spectrum named 'K6_ALL.txt' if K6 is the current region, r. Specify if your spectrum is in MHz or GHz.
+	return LF.spect('SPECTRA/%s_fullSpec.txt' %(r),units='MHz')  	#Grabs a spectrum named 'K6_ALL.txt' if K6 is the current region, r. Specify if your spectrum is in MHz or GHz.
 yunits = 'Specific Flux Density (mJy arcsec$^{-2}$)'			##Specify the units of the intensity units in the file in InSpec.  
 
 ### The csv file output is defined here.  
