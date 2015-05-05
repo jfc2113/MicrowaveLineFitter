@@ -17,9 +17,9 @@ def lineCompareAll(outfile,bigAr,infile1='None',infile2 = 'None',plotQ=False,wri
 	if infile2 =='recomb.csv':
 		infile2=infile
 		infile = 'recomb.csv'
-	flines=[]
 
 	### Fill arrays containing the line data from the csv files. 
+	flines=[]
 	if infile1 != 'None' and infile1 !='dum' and  infile1 != 'none' and infile1 !='Dum':
 		t=csv.reader(open(infile1,'rb'),delimiter=':')
 		ALL=[]
@@ -65,6 +65,7 @@ def lineCompareAll(outfile,bigAr,infile1='None',infile2 = 'None',plotQ=False,wri
 				fileWriter.writerow(dumar)
 				continue
 		if infile1 =='recomb.csv' or ALL[0][4]=='Recomb' or ALL[0][5]=='Recomb' or ALL[0][4]=='recomb' or ALL[0][5]=='recomb':
+			flines_shifted = flines*(1+(velshift-velRecomb)/c)
 			vlines = velshift + (flines-params[1])/params[1] * c
 			if abs(vlines-velRecomb).min() < dV_recomb:
 				nowmask = abs(vlines-velRecomb) < dV_recomb
@@ -79,15 +80,15 @@ def lineCompareAll(outfile,bigAr,infile1='None',infile2 = 'None',plotQ=False,wri
 					else:
 						if ALL[0][5]=='Recomb' or ALL[0][5:6]=='recomb':
 							dumar.extend(ALL[amin][5])
-					fl = flines[amin]
+					flp = flines_shifted[amin]
 					vlinesnow = np.concatenate((vlinesnow[:aimin],vlinesnow[aimin+1:]))
 				  	if plotQ==True or plotQ == 'True':
-						flp= fl*(1+(velshift-velRecomb)/c)
 						try:
 							pl.plot([flp,flp],[-1*plotlineHeight,plotlineHeight],':',color='r')
 						except:
 							continue
 		else:
+			flines_shifted = flines*(1+(velshift-best)/c)
 			vlines = velshift  +  (flines-params[1])/params[1] * c
 			if abs(vlines-velMol).min() < dV_mol:
 				nowmask = abs(vlines-velMol) < dV_mol
@@ -96,11 +97,9 @@ def lineCompareAll(outfile,bigAr,infile1='None',infile2 = 'None',plotQ=False,wri
 					aimin = np.argmin(abs(vlinesnow-best))
 					amin = np.argmin(abs(vlines-vlinesnow[aimin]))
 					dumar.extend(ALL[amin][:6])
-					fl = flines[amin]
+					flp = flines_shifted[amin]
 					vlinesnow = np.concatenate((vlinesnow[:aimin],vlinesnow[aimin+1:]))
 				  	if plotQ==True or plotQ == 'True':
-						flp= fl*(1+(velshift-best)/c)
-							
 						try:
 							pl.plot([flp,flp],[-1*plotlineHeight,plotlineHeight],':',color='r')
 						except:
@@ -109,6 +108,7 @@ def lineCompareAll(outfile,bigAr,infile1='None',infile2 = 'None',plotQ=False,wri
 		if infile2 != 'None' and infile2 !='dum':
 			if len(flines2)==0:
 				continue
+			flines_shifted = flines2*(1+(velshift-best)/c)
 			vlines2 = velshift + (flines2-params[1])/params[1] * c
 			if abs(vlines2-velMol).min() < dV_mol:
 				nowmask = abs(vlines2-velMol) < dV_mol
@@ -117,11 +117,10 @@ def lineCompareAll(outfile,bigAr,infile1='None',infile2 = 'None',plotQ=False,wri
 					aimin = np.argmin(abs(vlinesnow-best))
 					amin = np.argmin(abs(vlines2-vlinesnow[aimin]))
 					dumar.extend(ALL2[amin][:6])
-					fl = flines2[amin]
+					flp = flines_shifted[amin]
 					vlinesnow = np.concatenate((vlinesnow[:aimin],vlinesnow[aimin+1:]))
 				  	if plotQ==True or plotQ == 'True':
 						try:
-							flp= fl*(1+(velshift-best)/c)
 							pl.plot([flp,flp],[-1*plotlineHeight,plotlineHeight],':',color='k')
 						except:
 							continue
