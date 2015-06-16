@@ -8,38 +8,12 @@ crlim=0.3
 def maxabs(arr):
     return arr[np.argmax(np.abs(arr))] 
 
-def highlowmid(vv,nn=1):
-	
-	if vv[1]<vv[4]:
-		lowball = vv[1] - nn*abs(vv[2])
-		highball = vv[4] + nn*abs(vv[5])
-	else: 
-		lowball = vv[4] - nn*abs(vv[5])
-		highball = vv[1] + nn*abs(vv[2])
-	m = (lowball+highball)/2.
-	xr=abs(highball-m)
-	return xr,m
 
-def plotFunc(plotQ,title,xar,yar,xar1,yar1,GG,col):
-	if plotQ == True:
-		pl.figure(figsize=(5,3))
-		pl.plot(xar, yar,color=col,linewidth=4)
-		pl.plot(np.linspace(xar.min(),xar.max(),1000), GG,color='k',linewidth=2)	
-		pl.title(title)
-		try: pl.axvspan(xar.min(), xar1.min(), color='grey', alpha=0.5)
-		except: print "xar1 is empty.  Cannot plot in plotFunc in Gfit.py."
-		try: pl.axvspan(xar1.max(), xar.max(), color='grey', alpha=0.5)
-		except: print "xar1 is empty.  Cannot plot in plotFunc in Gfit.py."
-		pl.xlim([xar.min(),xar.max()])
-		pl.show()
+gauss_fit1 = lambda p, x: p[0]*np.exp(-(x-p[1])**2/(2*(p[2]/2.3548)**2))		#1d Gaussian func
+gauss_fit2 = lambda p, x: p[0]*np.exp(-(x-p[1])**2/(2*(p[2]/2.3548)**2))+p[3]*np.exp(-(x-p[4])**2/(2*(p[5]/2.3548)**2)) #2d Gaussian func
+e_gauss_fit1 = lambda p, x, y: (gauss_fit1(p,x) -y) #1d Gaussian fit
+e_gauss_fit2 = lambda p, x, y: (gauss_fit2(p,x) -y) #2d Gaussian fit
 
-def FM(vAR,X,Y,G):
-	if len(vAR) == 3:  compMask=abs(X-vAR[1])<0.8*abs(vAR[2])
-	if len(vAR) == 6:
-		xar_range,mid= highlowmid(vAR,nn=0.8)
-		compMask=abs(X-mid)<xar_range
-	compY, compG =Y[compMask],G[compMask]
-	return np.sqrt(((compY-compG)**2).mean())
 
 def printFunc(quiet,text,text2='dum',text3='dum',text4='dum',text5='dum',text6 ='dum'):
 	if quiet == False:
@@ -108,14 +82,41 @@ def Best1G(v_a,FMa,v_b,FMb,tBroadF,tNarrowF,xarmin,xarmax,q=False):
 						return v_b, FMb
 				else:  
 					return v_b, FMb
-	print "In Best1G in Gfit.py, determining which of two Gaussian fits is best. Somehow I got to the bottom of Best1G.  Returning v_a, FMa"
+	printFunc(q, "In Best1G in Gfit.py, determining which of two Gaussian fits is best. Somehow I got to the bottom of Best1G.  Returning v_a, FMa")
 	return v_a, FMa
+def highlowmid(vv,nn=1):
+	
+	if vv[1]<vv[4]:
+		lowball = vv[1] - nn*abs(vv[2])
+		highball = vv[4] + nn*abs(vv[5])
+	else: 
+		lowball = vv[4] - nn*abs(vv[5])
+		highball = vv[1] + nn*abs(vv[2])
+	m = (lowball+highball)/2.
+	xr=abs(highball-m)
+	return xr,m
 
+def plotFunc(plotQ,title,xar,yar,xar1,yar1,GG,col):
+	if plotQ == True:
+		pl.figure(figsize=(5,3))
+		pl.plot(xar, yar,color=col,linewidth=4)
+		pl.plot(np.linspace(xar.min(),xar.max(),1000), GG,color='k',linewidth=2)	
+		pl.title(title)
+		try: pl.axvspan(xar.min(), xar1.min(), color='grey', alpha=0.5)
+		except: print "xar1 is empty.  Cannot plot in plotFunc in Gfit.py."
+		try: pl.axvspan(xar1.max(), xar.max(), color='grey', alpha=0.5)
+		except: print "xar1 is empty.  Cannot plot in plotFunc in Gfit.py."
+		pl.xlim([xar.min(),xar.max()])
+		pl.show()
 
-gauss_fit1 = lambda p, x: p[0]*np.exp(-(x-p[1])**2/(2*(p[2]/2.3548)**2))		#1d Gaussian func
-gauss_fit2 = lambda p, x: p[0]*np.exp(-(x-p[1])**2/(2*(p[2]/2.3548)**2))+p[3]*np.exp(-(x-p[4])**2/(2*(p[5]/2.3548)**2)) #2d Gaussian func
-e_gauss_fit1 = lambda p, x, y: (gauss_fit1(p,x) -y) #1d Gaussian fit
-e_gauss_fit2 = lambda p, x, y: (gauss_fit2(p,x) -y) #2d Gaussian fit
+def FM(vAR,X,Y,G):
+	if len(vAR) == 3:  compMask=abs(X-vAR[1])<0.8*abs(vAR[2])
+	if len(vAR) == 6:
+		xar_range,mid= highlowmid(vAR,nn=0.8)
+		compMask=abs(X-mid)<xar_range
+	compY, compG =Y[compMask],G[compMask]
+	return np.sqrt(((compY-compG)**2).mean())
+
 
 def GauFit(xar,yar,rrms,nGau=1,v0=[0.,0.,0.],plotQ=False,tooNarrowv = 2.2, Broadv = 40, tooBroadv=70, tooBroadvABS = 9999,quiet = False, units = 'MHz',compSpread = 20, compWid= 15,DynRange = 100,firstImFreq = 30750.,imFreqRange = 1850.):		##v[0] = height, v[1] = center, v[2] = width (MHz)\
 #############################   BinCode = 2 and Bincode = 3 fits should be handled with caution.  Here's the description of these:
