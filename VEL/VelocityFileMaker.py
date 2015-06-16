@@ -3,6 +3,13 @@
 ##############################  See VelEDIT.py for all parameters.     ##############################
 #####################################################################################################
 
+#####################################################################################################
+##############################      We recommend running twice         ##############################
+##############################      consecutively. It sometimes        ##############################
+##############################      prematurely cuts off the file      ##############################
+##############################      when only run once.                ##############################
+#####################################################################################################
+
 
 #####################################################################################################
 #####################  This script will conver the output of FullCode.py to a concise csv file with 
@@ -51,8 +58,8 @@ def ArrayFiller(reg,ALLFITSfile,coolbins =[0,1,2,3,4],fUnitAF='GHz',fUnitCSV='GH
 	t=csv.reader(open(ALLFITSfile,'rt'),delimiter=':')
 	try: coolbins = VE.goodBins(reg)
 	except: print "the good bins are assumed to be 0,1,2,3, and 4"
-	try: strongFile,SACfile,fUnitCSV = VE.strongAndSAC(reg)
-	except: print "Didn't get anything from VelocityEditFile.py"
+	try: funitsCSV,strongFile,SACfile = VE.strongAndSAC(reg)
+	except: print "Didn't get any input files from VelocityEditFile.py"
 	try: fSAC,IDSAC,transSAC = lineGrab(SACfile,fUnitCSV)
 	except: 
 		print "Could not get data from SACfile.  May not have set a file name.  Proceeding."
@@ -75,7 +82,7 @@ def ArrayFiller(reg,ALLFITSfile,coolbins =[0,1,2,3,4],fUnitAF='GHz',fUnitCSV='GH
 		ffits.append(f)
 		heights.append(float(row[3]))
 		wids.append(float(row[4]))
-		try: fline=float(row[9])	#I had it in GHz.  Currently plotting in MHz.
+		try: fline=float(row[9])	
 		except: 
 			iii+=1
 			if len(fStrongU)> 0:
@@ -456,7 +463,7 @@ def recombFinder(reg, crs,lines,types,hs,wids,transitions,vshift,outwrite='False
 
 def SACfinder(reg,fs,hs,ws,mols,trans,types,rfs,vshift,Vrange=[0,0],outwrite='False',plotQ = 'True',r='N',o='None'):
 	### This handles line of sight absorption components.  NOT emission.
-	try: strongFile,SACfile,fUnitCSV = VE.strongAndSAC(reg)
+	try: fUnitCSV,strongFile,SACfile = VE.strongAndSAC(reg)
 	except: print "Didn't get anything from VelocityEditFile.py"
 	try: fSAC,IDSAC,transSAC = lineGrab(SACfile,fUnitCSV)
 	except: 
@@ -527,7 +534,7 @@ def strongFinder(reg,fs,hs,ws,mols,trans,types,rfs,vshift,Vrange=[0,0],outwrite=
 			print "In strongFinder, NEED TO INPUT a valid velocity range for the strong lines.  Otherwise, edit the if statements at start of function to include the region you're targeting"
 			return
 	    else:  Vrange,dummyparam = VE.strongVrange(reg)
-	try: strongFile,SACfile,fUnitCSV = VE.strongAndSAC(reg)
+	try: fUnitCSV,strongFile,SACfile = VE.strongAndSAC(reg)
 	except: print "Didn't get anything for strongFile & SACfile from VelocityEditFile.py"
 	try: fStrong,IDStrong,transStrong = lineGrab(strongFile,fUnitCSV)
 	except: 
@@ -706,6 +713,7 @@ for r in REGS:
 	print "\n GOING INTO UNIDENTIFIEDS"
 	UIDd = otherU(r,CRs,Hs,Wids,Specs,TRans,Types,Lines,VShift,outwrite='True',plotQ = 'True',r='%s' % r,o=outfile)
 	############ NOTE:  THIS PUTS THE REMAINING LINES INTO OUR OUTPUT CSV FILE.  IT WILL INCLUDE THE INFORMATION ABOUT THE TENTATIVE/INCONCLUSIVE TRANSITIONS THAT ARE NEARBY.  
+	
 
 
 
