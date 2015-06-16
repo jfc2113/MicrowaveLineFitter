@@ -32,24 +32,28 @@ def velshift(r):
 	return 64	#vLSR in km/s		## ARE YOUR DATA ALREADY VELOCITY SHIFTED? IF NOT, CHANGE TO 0.  If towards different regions, different vels, make this a function of r.
 
 def strongAndSAC(r):
-	## Optional:  Point to a csv file containing strong molecular lines expected in the source, lines that may appear in foreground absorption (in translucent & diffuse clouds), and the unit in which the frequencies are listed.  If you do not want to prepare these files, change the next line to "return []"
+	## Optional:  Point to a csv file containing strong molecular lines expected in the source, lines that may appear in foreground absorption (in translucent & diffuse clouds), and the unit in which the frequencies are listed.  If you do not want to use these files, change to "return []".  If you only want to use one of the files, change the name to 'dum', None or some other filler.  Can make the files depend on the region your looking at, with "if r=='K6': strong = strongK6.csv, etc.
 	strong = 'strongLines.csv'
-	foreground='SAClines.csv'
+	foreground='SAClines.csv'	
 	units = 'GHz'
-	return [strong, foreground, units]
+	return [units,strong, foreground]
 	## Set any of these to 'dum' or any other placeholder if you dont want to use these csvfiles.
 	## Another example:  return ['mySpecialLines.csv','TranslucentChem.csv','MHz']
 	## This could also be made to vary by the source:  if r == 'OrionKL': return ['hotCores.csv','dum','GHz']; if r == 'OrionBar': return ['PDRs.csv','dum','GHz']; if r == 'W49N': return ['hotCores.csv','TranslucentChem.csv','GHz']
 
+##IMPORTANT NOTE BELOW.
 def goodBins(r):
-	return [0,1,2,3,4]	## These are the bins that have valid fits and will be output into the velocity_ALL file.  If you only want to include very good lines, include [0,1,2].  bin=4 is what I use to indicate I've manually re-fit a line
+	return [0,1,2,3,4]	## These are the bins that have valid fits and will be output into the velocity_ALL file.  If you only want to include very good lines, include [0,1,2].  bin=4 is what I use to indicate I've manually re-fit a line.  
+## IMPORTANT NOTE: IT WILL NOT HANDLE FITS THAT ARE IN BIN=5 AS WRITTEN.  AS SUCH, YOU ARE RESPONSIBLE FOR MANUALLY ADJUSTING THESE FITS AND CHANGING THE BIN TO 4. 
+
+
 
 ##########  PROVIDE STRONG MASER FREQUENCIES IF YOU HAVE RINGING OR STRANGE LINE SHAPES AROUND THESE LINES.  ###########
 
 
 def RelevantMaserFreqs(r): 
-	masefreqs = np.asarray([36169.29])		#in MHz, the super strong methanol maser frequency.  Because of ringing & due to the narrow line widths, these lines have many wings extending further away than weaker, normal transitions.  Strong masing lines should be treated separately in selecting 'wing' components.
-	velocityWingRange=50			# this is the velocity range around a masing transition in which we will readily assign wing components
+	masefreqs = np.asarray([36169.29])		#in MHz, the super strong methanol maser frequency.   As the masing lines are strong and non-Gaussian., these lines have many wings extending further away than weaker, normal transitions.  Strong masing lines are thus handled differently than other lines for selecting 'wing' components.
+	velocityWingRange=50			# this is the velocity range around a masing transition in which we will readily assign wing components.
 	return masefreqs, velocityWingRange	
 
 
@@ -60,7 +64,7 @@ def SACvRange(r):
 	if r =='L':			Vrange=[-120,50]
 	if r =='LMH':			Vrange=[-120,55]
 	if r == 'K6' or r == 'N':	Vrange=[-120,58]
-	if r =='K4': 			Vrange=[-20,60]
+	if r =='K4': 			Vrange=[ -20,60]
 	if r =='M':			Vrange=[-120,40]
 	return Vrange
 
