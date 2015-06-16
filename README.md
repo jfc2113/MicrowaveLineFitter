@@ -16,8 +16,10 @@ First, we provide a short set of directions:
          Optional:  Manually adjust output of FullCode.py to improve fits that are flagged as bad (see bins below).  
 
          %run VelocityFileMaker.py
+         
+         %run VelocityFileMaker.py   
 
-The final output files are named velocity_ALL_(r).csv where r is the name of the region or source of interest. 
+The final output files are named velocity_ALL_(r).csv where r is the name of the region or source of interest. We recommend that you run VelcoityFileMaker.py twice consecutively, as the output file sometimes cuts off prematurely if this is not done.  
 
 Second, we provide a description of the code and process:
 
@@ -55,10 +57,10 @@ FullCode plots the full data spectrum with the line fits overlaid, marking the l
 4. possible atomic or molecular carriers of the detected Gaussian features.  The output file lists any transitions from the input 'recombLines.csv' and 'molecularLines.csv' files that are within a specified velocity range of the detected features.  
 
 Upon inspection of the results and manual updates to any bad fits, run VelocityFileMaker to generate a final output csv file containing line identifications and Gaussian fit parameters, with parameters listed in velocity space.   VelocityFileMaker generates an output csv file entitled "velocity_ALL_(r).csv".  The file 
-contains line rest frequencies, species, transitions, Gaussian fit velocities, heights, widths (in velocity units), 
+contains line rest frequencies, species, transitions, Gaussian fit velocities, heights, widths (in velocity units),
 center frequencies, and "LineTypes".
 
-Before running VelocityFileMaker, edit parameters in 'VelocityEditFile.py', imported to VelocityFileMaker as 'VE'.  Specify the names of the positions from which you extracted spectra, csv file input names, and velocity ranges that are appropriate for different types of lines, including recombination lines, molecular lines from the primary source, and additional lines observed in absorption by foreground diffuse or translucent clouds.  The latter is only relevant in some lines-of-sight.
+Before running VelocityFileMaker, edit parameters in 'VelocityEditFile.py', imported to VelocityFileMaker as 'VE'. Specify the names of the positions from which you extracted spectra, csv file input names, and velocity ranges that are appropriate for different types of lines, including recombination lines, molecular lines from the primary source, and additional lines observed in absorption by foreground diffuse or translucent clouds.  The latter is only relevant in some lines-of-sight.  We recommend that you run VelocityFileMaker twice consecutively, before inspecting the output files.  For some reason, the output file sometimes cuts off prematurely when only run once.  
 
 The code implements primarily kinematics-based consistency checks for line identifications, and can use one or two optional input csv files to prioritize line identifications. In order to minimize mis-identification, the final line-identification process operates on a priority system as follows:
 
