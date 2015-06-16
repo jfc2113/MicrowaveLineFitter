@@ -21,7 +21,7 @@ wantLineIDs=True	## Do you want to do the line identification?  Doing so require
 plotLineIDs=True	## Do you want to plot the frequencies of lines from catalogs that correspond to your detected transition? This also requires that you have an input csv file (compFile1, below) that contains line information. Won't happen if wantLineIDs == False. 
 GoutPlotQ = False	## If GoutPlotQ == True, separate plots will be made for each line that is fit.  For doing the full spectrum, GoutPlotQ = True will generate MANY plots!!Generally will want GoutPlotQ = False, which will generate a single plot of the full spectrum with the full fit overlaid.
 GQuiet = True		## If GQuiet == False, will print out multiple updates while running the Gaussian Fitter (Gfit.gauFit).
-ExtraQuiet = True	## If ExtraQuiet == False, will print out a couple updates during the loop below.
+ExtraQuiet = True	## If ExtraQuiet == False, will print out a few updates during the loop below.
 plotLID_Height='dum'	## If you plot line IDs, this specifies the height you want to plot.  
 LenGauArs = 100000	## This is the length of the array that holds the Gaussian fit to the spectrum.  The "resolution" of the line-fit spectrum is (Freq_Max-Freq_Min)/LenGauArs.  Increase for very broadband work, such that LenGauArs > 6 * Total_Bandwidth/Line_Width  
 wantInterp = True	## If this is true, the Gaussian fitter will fit interpolated data instead of the raw data.  Use if your lines are poorly sampled.  Set to False if your data is <2x Nyquist sampled.
@@ -45,7 +45,7 @@ compFileUnits = 'GHz'			#The frequencies in recomb.csv & molecularLines.csv are 
 ### The data input is defined here.
 ### The spectrum should be an ascii file with a frequency column and an intensity column.  The frequency column should be in MHz.  
 def InSpec(r):
-	return LF.spect('SPECTRA/%s_fullSpec.txt' %(r),units='MHz')  	#Grabs a spectrum named 'K6_ALL.txt' if K6 is the current region, r. Specify if your spectrum is in MHz or GHz.
+	return LF.spect('%s_fullSpec.txt' %(r),units='MHz')  	#Grabs a spectrum named 'K6_ALL.txt' if K6 is the current region, r. Specify if your spectrum is in MHz or GHz.
 yunits = 'Specific Flux Density (mJy arcsec$^{-2}$)'			##Specify the units of the intensity units in the file in InSpec.  
 
 ### The csv file output is defined here.  
@@ -245,7 +245,6 @@ for r in regions:
 		if ExtraQuiet == False or ExtraQuiet == 'False':
 			print "Now beginning the Line-IDs."
 		rV,rdV,molV,moldV,molBest = LineFind_velParams(r)
-		print "rV,rdV,molV,moldV,molBest",rV,rdV,molV,moldV,molBest
 		if wantLineIDs == True or wantLineIDs=='True':
 			lID.lineCompareAll(outfile,regionMaster,infile1 = compFile1,infile2 = compFile2,plotQ=plotLineIDs,writeout=writeOut,velshift=velShift,velRecomb=rV, dV_recomb=rdV, velMol = molV,dV_mol=moldV,best=molBest,plotlineHeight=plotLID_Height,inFileUnits=compFileUnits)
 		else:
